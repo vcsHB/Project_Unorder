@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-namespace Project_Edge.UIManage
+namespace Project_Unorder.UIManage
 {
 
     public class HoverPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler

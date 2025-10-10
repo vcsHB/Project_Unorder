@@ -1,7 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
-namespace Project_Edge.UIManage.InGameSceneUI
+namespace Project_Unorder.UIManage.InGameSceneUI
 {
 
     public class HoverScaleHighlighter : HoverPanel

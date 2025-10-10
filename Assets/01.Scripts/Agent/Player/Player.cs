@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Edge.AgentSytstem.PlayerManage
+namespace Project_Unorder.AgentSytstem.PlayerManage
 {
 
     public class Player : Agent

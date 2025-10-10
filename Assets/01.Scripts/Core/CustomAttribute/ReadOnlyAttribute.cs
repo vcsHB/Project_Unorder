@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Project_Edge.Core.Attribute
+namespace Project_Unorder.Core.Attribute
 {
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
     public class ReadOnlyAttribute : PropertyAttribute

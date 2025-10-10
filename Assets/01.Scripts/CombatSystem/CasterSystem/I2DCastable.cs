@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Edge.CombatSystem.CasterSystem
+namespace Project_Unorder.CombatSystem.CasterSystem
 {
 
     public interface I2DCastable 

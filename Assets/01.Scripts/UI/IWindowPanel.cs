@@ -1,4 +1,4 @@
-namespace Project_Edge.UIManage
+namespace Project_Unorder.UIManage
 {
     public interface IWindowPanel
     {

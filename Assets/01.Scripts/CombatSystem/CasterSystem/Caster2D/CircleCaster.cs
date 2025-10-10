@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Edge.CombatSystem.CasterSystem.Caster2Ds
+namespace Project_Unorder.CombatSystem.CasterSystem.Caster2Ds
 {
 
     public class CircleCaster : Caster2D

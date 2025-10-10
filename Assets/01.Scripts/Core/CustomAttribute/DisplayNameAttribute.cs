@@ -1,4 +1,4 @@
-namespace Project_Edge.Core.Attribute
+namespace Project_Unorder.Core.Attribute
 {
     public class DisplayNameAttribute : System.Attribute
     {

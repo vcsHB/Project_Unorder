@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-namespace Project_Edge.CombatSystem
+namespace Project_Unorder.CombatSystem
 {
 
     public class HealthBody : MonoBehaviour, IDamageable

@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Edge.CombatSystem
+namespace Project_Unorder.CombatSystem
 {
 
     public class DamageData : MonoBehaviour

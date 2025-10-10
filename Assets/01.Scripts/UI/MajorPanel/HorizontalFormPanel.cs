@@ -1,6 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
-namespace Project_Edge.UIManage
+namespace Project_Unorder.UIManage
 {
 
     public class HorizontalFormPanel : SizingPanel

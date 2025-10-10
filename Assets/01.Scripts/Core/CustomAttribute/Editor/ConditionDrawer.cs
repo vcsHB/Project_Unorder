@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Project_Edge.Core.Attribute
+namespace Project_Unorder.Core.Attribute
 {
     using UnityEditor;
     using UnityEngine;

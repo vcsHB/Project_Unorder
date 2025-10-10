@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Project_Edge.AgentSytstem.PlayerManage.FSM
+namespace Project_Unorder.AgentSytstem.PlayerManage.FSM
 {
 
     public class PlayerStateMachine

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Project_Edge.CombatSystem;
+using Project_Unorder.CombatSystem;
 
-namespace Project_Edge.AgentSytstem
+namespace Project_Unorder.AgentSytstem
 {
     /// <summary>
     /// InGame ENTITY Default Class.  

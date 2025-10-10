@@ -1,7 +1,7 @@
-using Project_Edge.Core.Attribute;
+using Project_Unorder.Core.Attribute;
 using UnityEngine;
 using UnityEngine.Events;
-namespace Project_Edge.CombatSystem.CasterSystem
+namespace Project_Unorder.CombatSystem.CasterSystem
 {
 
     public abstract class Caster : MonoBehaviour

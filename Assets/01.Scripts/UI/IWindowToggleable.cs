@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Edge.UIManage.InGameSceneUI
+namespace Project_Unorder.UIManage.InGameSceneUI
 {
 
     public interface IWindowToggleable
