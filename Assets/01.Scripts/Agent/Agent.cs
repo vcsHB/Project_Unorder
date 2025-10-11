@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Project_Unorder.CombatSystem;
 
-namespace Project_Unorder.AgentSytstem
+namespace Project_Unorder.AgentSystem
 {
     /// <summary>
     /// InGame ENTITY Default Class.  

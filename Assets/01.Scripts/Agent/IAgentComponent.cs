@@ -1,4 +1,4 @@
-namespace Project_Unorder.AgentSytstem
+namespace Project_Unorder.AgentSystem
 {
 
     public interface IAgentComponent

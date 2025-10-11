@@ -1,7 +1,7 @@
 using InputManage;
-using Project_Unorder.AgentSytstem.PlayerManage.FSM;
+using Project_Unorder.AgentSystem.PlayerManage.FSM;
 using UnityEngine;
-namespace Project_Unorder.AgentSytstem.PlayerManage
+namespace Project_Unorder.AgentSystem.PlayerManage
 {
 
     public class Player : Agent
@@ -19,7 +19,12 @@ namespace Project_Unorder.AgentSytstem.PlayerManage
 
         }
 
-        
+        private void Update()
+        {
+            _stateMachine.UpdateState();
+        }
+
+
 
     }
 

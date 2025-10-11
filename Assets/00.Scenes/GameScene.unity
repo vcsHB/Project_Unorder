@@ -821,7 +821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &775528743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: UNGRAVITY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62ab2642e62f2a54f9761628b5d47fbf, type: 2}
   m_sharedMaterial: {fileID: -4846329373540591980, guid: 62ab2642e62f2a54f9761628b5d47fbf, type: 2}
@@ -1662,6 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef00a2ed6b38d4298f245ecbbb0455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project_Unorder.AgentSytstem.PlayerManage.PlayerMover
+  _moveSpeed: 20
   canMove: 1
   _visualRotator: {fileID: 1933636349}
 --- !u!58 &2041510335
@@ -1712,7 +1713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f941fd4ea4fb214785906ebfc4108eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project_Unorder.AgentSytstem.PhysicsBody
-  _gravityDirection: {x: 0, y: -1}
+  _gravityDirection: {x: 0, y: 0}
   _gravityScale: 1
   _gravityStrength: 20
   _groundCheckDistance: 0.85

@@ -29,9 +29,9 @@ namespace InputManage
         public void OnMove(InputAction.CallbackContext context)
         {
             InputDirection = context.ReadValue<Vector2>();
-            if (context.performed)
+            if (context.canceled)
             {
-                //OnMoveEvent?.Invoke(InputDirection);
+                InputDirection = Vector2.zero;
             }
         }
 

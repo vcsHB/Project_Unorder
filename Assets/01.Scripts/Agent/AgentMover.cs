@@ -1,6 +1,6 @@
 using Project_Unorder.PhysicsSystem;
 using UnityEngine;
-namespace Project_Unorder.AgentSytstem
+namespace Project_Unorder.AgentSystem
 {
 
     public class AgentMover : MonoBehaviour, IAgentComponent
@@ -8,6 +8,7 @@ namespace Project_Unorder.AgentSytstem
         protected PhysicsBody _physicsCompo;
         protected Agent _owner;
         public Vector2 CurrentVelocity => _physicsCompo.Velocity;
+        [SerializeField] private float _moveSpeed = 2f;
         public bool canMove = true;
 
         protected virtual void Awake()
@@ -48,13 +49,26 @@ namespace Project_Unorder.AgentSytstem
 
         public virtual void SetVelocity(Vector2 velocity)
         {
-            _physicsCompo.SetVelocity(velocity);
+            _physicsCompo.SetMovement(velocity);
+        }
+        public virtual void SetMovement(Vector2 direction)
+        {
+            if (_physicsCompo.IsGravityEnable)
+            {
+
+                Vector2 gravityDir = _physicsCompo.GravityDirection.normalized;
+                Vector2 perpendicular = direction - Vector2.Dot(direction, gravityDir) * gravityDir;
+                _physicsCompo.SetMovement(perpendicular.normalized * _moveSpeed);
+            }
+            else
+            {
+                SetVelocity(direction * _moveSpeed);
+            }
         }
 
         public void StopImmediately()
         {
-            SetVelocity(Vector2.zero);
-
+            _physicsCompo.StopMovement();
         }
 
 

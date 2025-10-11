@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Unorder.AgentSytstem.PlayerManage.FSM
+namespace Project_Unorder.AgentSystem.PlayerManage.FSM
 {
 
     public class PlayerMoveState : PlayerGroundState
@@ -19,10 +19,16 @@ namespace Project_Unorder.AgentSytstem.PlayerManage.FSM
         {
             base.UpdateState();
             Vector2 direction = _player.PlayerInput.InputDirection;
-            //Debug.Log("리미트 모드 밍밍 Direction: " + direction);
-            _mover.SetVelocity(direction);
+            _mover.SetMovement(direction);
+
+
+            if (Mathf.Approximately(_player.PlayerInput.InputDirection.magnitude, 0))
+            {
+                _stateMachine.ChangeState(PlayerStateType.Idle);
+            }
 
         }
+
 
         public override void Exit()
         {

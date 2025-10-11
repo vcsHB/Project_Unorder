@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Unorder.AgentSytstem.PlayerManage.FSM
+namespace Project_Unorder.AgentSystem.PlayerManage.FSM
 {
 
     public class PlayerIdleState : PlayerGroundState
@@ -12,9 +12,18 @@ namespace Project_Unorder.AgentSytstem.PlayerManage.FSM
         {
             base.Enter();
             _mover.StopImmediately();
+
         }
 
-
+        public override void UpdateState()
+        {
+            base.UpdateState();
+            float magnitude = _player.PlayerInput.InputDirection.magnitude;
+            if (Mathf.Abs(magnitude) > 0f)
+            {
+                _stateMachine.ChangeState(PlayerStateType.Move);
+            }
+        }
 
     }
 }

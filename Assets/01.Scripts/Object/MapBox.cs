@@ -25,17 +25,17 @@ namespace Project_Unorder.ObjectManage
         [ContextMenu("Debug10")]
         private void DebugASd()
         {
-            SetBoxSize(new Vector2(10f, 10f), _boxThickness, 3f);
+            SetBoxSize(new Vector2(10f, 10f), 3f);
         }
 
         [ContextMenu("Debug20")]
         private void DebugAasdasd()
         {
-            SetBoxSize(new Vector2(20f, 20f), _boxThickness, 3f);
+            SetBoxSize(new Vector2(20f, 20f), 3f);
         }
 
 
-        public void SetBoxSize(Vector2 newSize, float thickness, float duration, bool isForce = false)
+        public void SetBoxSize(Vector2 newSize, float duration, bool isForce = false)
         {
             if (!isForce && _isSizing) return;
 

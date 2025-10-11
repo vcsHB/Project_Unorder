@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Project_Unorder.Core.Attribute;
 using UnityEngine;
 
-namespace Project_Unorder.AgentSytstem.PlayerManage.FSM
+namespace Project_Unorder.AgentSystem.PlayerManage.FSM
 {
     [System.Serializable]
     public class PlayerStateMachine
@@ -18,7 +18,7 @@ namespace Project_Unorder.AgentSytstem.PlayerManage.FSM
         public void Initialize(Player owner)
         {
             _owner = owner;
-
+            _stateDictionary = new();
             foreach (PlayerStateType item in Enum.GetValues(typeof(PlayerStateType)))
             {
                 AddState(item);
@@ -47,6 +47,11 @@ namespace Project_Unorder.AgentSytstem.PlayerManage.FSM
                 _currentStateDisplayString = newStateType.ToString();
                 CurrentState.Enter();
             }
+        }
+
+        public void UpdateState()
+        {
+            CurrentState.UpdateState();
         }
     }
 }

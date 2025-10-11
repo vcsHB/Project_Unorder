@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Unorder.AgentSytstem
+namespace Project_Unorder.AgentSystem
 {
 
     [CreateAssetMenu(fileName = "AnimParamSO", menuName = "SO/Anim/ParamSO")]

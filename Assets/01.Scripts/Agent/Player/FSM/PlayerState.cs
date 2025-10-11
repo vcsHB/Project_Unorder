@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Unorder.AgentSytstem.PlayerManage.FSM
+namespace Project_Unorder.AgentSystem.PlayerManage.FSM
 {
 
     public class PlayerState
