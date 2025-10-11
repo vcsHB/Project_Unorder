@@ -2,22 +2,15 @@ using UnityEngine;
 namespace Project_Unorder.AgentSytstem.PlayerManage
 {
 
-    public class PlayerMover : MonoBehaviour, IAgentComponent
+    public class PlayerMover : AgentMover
     {
-        public void AfterInitialize()
-        {
-        }
+        [SerializeField] private PlayerVisualRotator _visualRotator;
 
-        public void Dispose()
-        {
-        }
 
-        public void Initialize(Agent owner)
+        public override void SetVelocity(Vector2 velocity)
         {
-        }
-
-        public void LateInitialize()
-        {
+            base.SetVelocity(velocity);
+            _physicsCompo.SetVelocity(velocity);
         }
     }
 }
