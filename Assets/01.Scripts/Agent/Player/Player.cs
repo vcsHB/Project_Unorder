@@ -13,6 +13,12 @@ namespace Project_Unorder.AgentSystem.PlayerManage
         protected override void Awake()
         {
             base.Awake();
+
+        }
+
+        protected override void Start()
+        {
+            base.Start();
             // # Agent:Awake Component All Initialize -> stateMachine Initialize 
             _stateMachine = new PlayerStateMachine();
             _stateMachine.Initialize(this);

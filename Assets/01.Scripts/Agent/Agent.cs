@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Project_Unorder.CombatSystem;
+using System.Linq;
 
 namespace Project_Unorder.AgentSystem
 {
@@ -77,36 +78,33 @@ namespace Project_Unorder.AgentSystem
             }
         }
 
-        public T GetCompo<T>(bool allowDerived = false) where T : class
+        public T GetCompo<T>(bool isDerived = false) where T : class
         {
-            Type targetType = typeof(T);
-
-            if (_components.TryGetValue(targetType, out IAgentComponent cached))
+            if (_components.TryGetValue(typeof(T), out IAgentComponent compo))
             {
-                return cached as T;
+                return compo as T;
             }
-
-            T found = GetComponentInChildren<T>();
-            if (found is IAgentComponent agentComponent)
+            else
             {
-                _components[targetType] = agentComponent;
-                return found;
-            }
-
-            if (allowDerived)
-            {
-                foreach (var kvp in _components)
+                //Debug.Log("Not Exist In components dictionary");
+                T newComponent = GetComponentInChildren<T>();
+                if (newComponent is IAgentComponent)
                 {
-                    if (kvp.Key.IsSubclassOf(targetType) && kvp.Value is T derivedCompo)
-                    {
-                        return derivedCompo;
-                    }
+
+                    _components.Add(typeof(T), newComponent as IAgentComponent);
+                    //Debug.Log("Insert In dictionary");
+                    return newComponent;
                 }
             }
 
-            return default;
-        }
+            if (!isDerived) return default;
 
+            Type findType = _components.Keys.FirstOrDefault(x => x.IsSubclassOf(typeof(T)));
+            if (findType != null)
+                return _components[findType] as T;
+
+            return default(T);
+        }
         #endregion
     }
 }

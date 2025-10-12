@@ -18,8 +18,8 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
         {
             _player = player;
             _stateMachine = stateMachine;
-            _mover = player.GetCompo<PlayerMover>();
-            _playerRenderer = player.GetCompo<PlayerRenderer>();
+            _mover = player.GetCompo<PlayerMover>(true);
+            _playerRenderer = player.GetCompo<PlayerRenderer>(true);
             _animationHash = animationHash;
         }
 
