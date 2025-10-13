@@ -19,7 +19,11 @@ namespace Project_Unorder.CombatSystem.CasterSystem
 
         public Vector3 CastPivot => transform.position + _castOffset;
 
-
+        protected virtual void Awake()
+        {
+            Initialize();
+        }
+        
         protected virtual void Initialize()
         {
 

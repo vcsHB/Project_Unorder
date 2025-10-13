@@ -12,6 +12,7 @@ namespace Project_Unorder.ObjectManage
         [SerializeField] Transform _topBar;
         [SerializeField] Transform _leftBar;
         [SerializeField] Transform _rightBar;
+        [SerializeField] private SpriteRenderer _edgeBoxRenderer;
 
         [Header("Box Setting")]
 
@@ -25,13 +26,13 @@ namespace Project_Unorder.ObjectManage
         [ContextMenu("Debug10")]
         private void DebugASd()
         {
-            SetBoxSize(new Vector2(10f, 10f), 3f);
+            SetBoxSize(new Vector2(10f, 10f), 3f, false);
         }
 
         [ContextMenu("Debug20")]
         private void DebugAasdasd()
         {
-            SetBoxSize(new Vector2(20f, 20f), 3f);
+            SetBoxSize(new Vector2(20f, 20f), 3f, false);
         }
 
 
@@ -81,6 +82,8 @@ namespace Project_Unorder.ObjectManage
 
             float halfX = x * 0.5f;
             float halfY = y * 0.5f;
+
+            _edgeBoxRenderer.size = newSize;
 
             _topBar.localPosition = new Vector3(0f, halfY, 0f);
             _bottomBar.localPosition = new Vector3(0f, -halfY, 0f);

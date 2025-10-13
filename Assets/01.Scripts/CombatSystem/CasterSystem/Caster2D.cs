@@ -5,13 +5,15 @@ namespace Project_Unorder.CombatSystem.CasterSystem
     public abstract class Caster2D : Caster
     {
         protected Collider2D[] _hitBodys;
-        protected I2DCastable[] _subCasters;
+        protected ICastable2D[] _subCasters;
+
+       
 
         protected override void Initialize()
         {
             base.Initialize();
             _hitBodys = new Collider2D[_detectMaxTargetAmount];
-            _subCasters = GetComponents<I2DCastable>();
+            _subCasters = GetComponents<ICastable2D>();
         }
 
         public void ForceCast(Collider2D[] hit)

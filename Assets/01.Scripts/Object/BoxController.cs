@@ -8,7 +8,7 @@ namespace Project_Unorder.ObjectManage
 
         public Transform BoxTransform => _mapbox.transform;
 
-        
+
         
     }
 }
