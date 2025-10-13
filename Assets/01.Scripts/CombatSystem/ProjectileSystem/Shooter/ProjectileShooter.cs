@@ -1,3 +1,4 @@
+using System.Data.Common;
 using UnityEngine;
 namespace Project_Unorder.CombatSystem.ProjectileSystem
 {
@@ -11,6 +12,7 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
         {
             // Pooling
             Projectile projectile = _projectileData.GetProjectile();
+            projectile.transform.position = transform.position;
             return projectile;
         }
 

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Project_Unorder.CombatSystem.ProjectileSystem
 {
+    
     [CreateAssetMenu(menuName = "SO/ProjectileSO")]
     public class ProjectileSO : ScriptableObject
     {
@@ -16,6 +17,7 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
             Projectile projectile = pool.Count > 0 ? pool.Pop() : CreateProjectile();
             projectile.gameObject.SetActive(true);
             return projectile;
+
         }
         public void SetProjectileEnable()
         {
@@ -49,6 +51,7 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
             Projectile projectile = GameObject.Instantiate(projectilePrefab);
             projectile.OnProjectileDestroyEvent += HandleProjectileDestroy;
             projectile.gameObject.SetActive(false);
+
             return projectile;
         }
 
