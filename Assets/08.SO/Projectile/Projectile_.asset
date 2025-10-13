@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Projectile_
   m_EditorClassIdentifier: Assembly-CSharp::Project_Unorder.CombatSystem.ProjectileSystem.ProjectileSO
   projectileName: 
-  projectilePrefab: {fileID: 0}
-  poolAmount: 0
+  projectilePrefab: {fileID: 1931775821154653443, guid: 58347d4300aac5c45978fcff38c123f3, type: 3}
+  poolAmount: 40
