@@ -4,11 +4,17 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
 
     public class ProjectileManager : MonoBehaviour
     {
-        private ProjectileSO[] _enabledProjectiles;
-        
+        [SerializeField] private ProjectileSO[] _enabledProjectiles;
+
+        private void Awake()
+        {
+            // DEBUG
+            EnableProjectile(_enabledProjectiles);
+        }
+
         public void EnableProjectile(ProjectileSO[] projectileData)
         {
-            _enabledProjectiles = projectileData;
+            // _enabledProjectiles = projectileData;
             for (int i = 0; i < projectileData.Length; i++)
             {
                 projectileData[i].SetProjectileEnable();
