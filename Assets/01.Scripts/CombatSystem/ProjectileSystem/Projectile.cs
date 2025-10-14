@@ -11,6 +11,7 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
         [SerializeField] private CollisionTriggerCaster2D _caster;
         protected float _destroyTime;
         protected bool _isProjectileEnable;
+        
         protected virtual void Awake()
         {
             _rigidCompo = GetComponent<Rigidbody2D>();
