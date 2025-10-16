@@ -31,7 +31,7 @@ namespace MINISoundManage
         {
             if (soundSO == null || soundSO.clip == null)
             {
-                Debug.LogError("PlaySound: soundSO 또는 soundSO.clip이 null입니다.");
+                Debug.LogError("[MINISOUND] PlaySound: soundSO or soundSO.clip is null");
                 return null;
             }
 
