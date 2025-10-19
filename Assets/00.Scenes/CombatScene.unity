@@ -2179,7 +2179,7 @@ GameObject:
   - component: {fileID: 192076161}
   - component: {fileID: 192076160}
   m_Layer: 0
-  m_Name: Image
+  m_Name: BackgroundIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4047,6 +4047,39 @@ MeshRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 8
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &490001116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 490001117}
+  m_Layer: 0
+  m_Name: EnvironmentEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &490001117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490001116}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 589141921}
+  - {fileID: 2064030169}
+  m_Father: {fileID: 674453629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4370,6 +4403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _logGroup: {fileID: 464196995}
+  _logChannelEnable: 0
   _testLogContent:
     logIcon: {fileID: -5108737906549527290, guid: 6cdba1f0dbc7fb24298f962acee8049c, type: 3}
     logContent: TEST LOG
@@ -4400,12 +4434,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589141920}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.223, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.20787871, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 674453629}
+  m_Father: {fileID: 490001117}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!199 &589141922
 ParticleSystemRenderer:
@@ -9666,7 +9700,7 @@ Transform:
   m_LocalScale: {x: 87.4, y: 87.4, z: 87.4}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 589141921}
+  - {fileID: 490001117}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &678687356
@@ -10003,7 +10037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -17511,12 +17545,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064030167}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -20.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.216, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 490001117}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2071114582
 GameObject:
@@ -18118,4 +18152,3 @@ SceneRoots:
   - {fileID: 838631434}
   - {fileID: 1909852120}
   - {fileID: 674453629}
-  - {fileID: 2064030169}
