@@ -1,9 +1,8 @@
+using UnityEngine;
 namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
 {
 
-    public class DenyPanel : AnimationWindowPanel
+    public class ObserverPanel : AnimationWindowPanel
     {
-      
-
     }
 }

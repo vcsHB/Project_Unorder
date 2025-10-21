@@ -181,6 +181,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 7f268701661582f4a95a0786ca99e8c9, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 7f268701661582f4a95a0786ca99e8c9, type: 2}
+  - {fileID: 7400000, guid: aa9b740d152e2d849b7d1fe6f061385a, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -199,6 +200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationCompo: {fileID: 6475805220679847534}
+  _openClipNameKey: DenyPanelOpenAnimation
+  _closeClipNameKey: DenyPanelCloseAnimation
 --- !u!1 &7296389788691516391
 GameObject:
   m_ObjectHideFlags: 0

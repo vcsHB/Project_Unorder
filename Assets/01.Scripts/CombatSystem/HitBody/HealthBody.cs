@@ -1,4 +1,5 @@
 using System;
+using Project_Unorder.Core.Attribute;
 using UnityEngine;
 using UnityEngine.Events;
 namespace Project_Unorder.CombatSystem
@@ -9,9 +10,9 @@ namespace Project_Unorder.CombatSystem
         public UnityEvent OnDieEvent;
         public Action<float, float> OnHealthDecreaseEvent;
         public Action<float, float> OnHealthIncreaseEvent;
-        private float _currentHealth;
-        private float _maxHealth;
-        protected bool _isDead;
+        [SerializeField] private float _currentHealth;
+        [SerializeField] private float _maxHealth;
+        [SerializeField, ReadOnly] protected bool _isDead;
 
         #region Properties
         public float CurrentHealth => _currentHealth;
