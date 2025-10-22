@@ -42,8 +42,13 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
                 _currentWindowIndex = 0;
                 return;
             }
+            if (CurrentWindow != null)
+            {
+                CurrentWindow.HandleUnselect();
+            }
             _currentWindowIndex = (_currentWindowIndex + 1) % _windowList.Count;
             CurrentWindow = _windowList[_currentWindowIndex];
+            CurrentWindow.HandleSelect();
         }
 
         #region Controls

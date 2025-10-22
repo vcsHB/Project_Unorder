@@ -11,7 +11,7 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
             base.ReceiveSubmit();
             MoveToPage(_nextPage);
 
-        }
+        }   
     }
 
 

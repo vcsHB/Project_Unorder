@@ -21,12 +21,14 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
 
         public virtual void HandlePageEnter()
         {
-            _panel.Open();
+            if (_panel != null)
+                _panel.Open();
         }
 
         public virtual void HandlePageExit()
         {
-            _panel.Close();
+            if (_panel != null)
+                _panel.Close();
         }
 
         public virtual void ReceiveInputDirection(Vector2 inputDirection)
