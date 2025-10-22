@@ -2,7 +2,8 @@ using UnityEngine;
 namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
 {
 
-    public class ObserverPanel : AnimationWindowPanel
+    public class LoggerViewWindow : MainWindow
     {
+
     }
 }
