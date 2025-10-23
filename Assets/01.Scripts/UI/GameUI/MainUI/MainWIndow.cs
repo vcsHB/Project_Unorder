@@ -2,12 +2,14 @@ using DG.Tweening;
 using Project_Unorder.Core.Attribute;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
 {
 
     public class MainWindow : MonoBehaviour, IDeniable, IWindowPanel
     {
         private DenyPanel _denyPanel;
+
         [SerializeField] private Image _backgroundImage;
         [SerializeField, ReadOnly] private PageController _pageController;
         [Header("Select Setting")]
