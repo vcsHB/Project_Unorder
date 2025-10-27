@@ -11,7 +11,7 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
         private DenyPanel _denyPanel;
 
         [SerializeField] private Image _backgroundImage;
-        [SerializeField, ReadOnly] private PageController _pageController;
+        [SerializeField, ReadOnly] protected PageController _pageController;
         [Header("Select Setting")]
         [SerializeField] private float _selectScale = 1.03f;
         [SerializeField] private Color _selectColor = Color.white;

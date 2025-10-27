@@ -7,6 +7,7 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
     {
         protected IWindowPanel _panel;
         [SerializeField] protected float _transitionExitDuration = 0.3f;
+        public float TransitionExitDuration => _transitionExitDuration;
         public event Action<WindowPage, float> OnPageMoveEvent; // NextPage / Transition Duration
 
         protected virtual void Awake()
