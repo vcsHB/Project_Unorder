@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 
+
 namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
 {
 
@@ -9,11 +10,10 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
     {
         public WindowSelectionItem[] items;
     }
-
-    
     public class GridSelectionGroupWindowPage : WindowPage
     {
         [SerializeField] protected SelectionRow[] _selectionRows;
+        [SerializeField] protected bool _wrapAround = true;
 
         protected Vector2Int _currentSelectionPosition;
 
@@ -82,7 +82,7 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
             int currentY = _currentSelectionPosition.y;
 
             int deltaX = Mathf.RoundToInt(inputDirection.x);
-            int deltaY = Mathf.RoundToInt(inputDirection.y);
+            int deltaY = Mathf.RoundToInt(-inputDirection.y);
 
             if (deltaX == 0 && deltaY == 0) return;
 
@@ -99,20 +99,38 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
             if (deltaX != 0)
             {
                 int newX = (currentX + deltaX);
+                int finalX = currentX;
 
-                if (newX < 0)
+                if (_wrapAround)
                 {
-                    newX = (int)_gridWidth - 1;
+                    if (newX < 0)
+                    {
+                        finalX = (int)_gridWidth - 1;
+                    }
+                    else if (newX >= _gridWidth)
+                    {
+                        finalX = 0;
+                    }
+                    else
+                    {
+                        finalX = newX;
+                    }
                 }
-                else if (newX >= _gridWidth)
+                else
                 {
-                    newX = 0;
+                    if (newX >= 0 && newX < _gridWidth)
+                    {
+                        finalX = newX;
+                    }
                 }
 
-                if (_gridHeights[newX] > 0)
+                if (finalX != currentX && finalX >= 0 && finalX < _gridWidth)
                 {
-                    currentX = newX;
-                    currentY = Mathf.Min(currentY, (int)_gridHeights[currentX] - 1);
+                    if (_gridHeights[finalX] > 0)
+                    {
+                        currentX = finalX;
+                        currentY = Mathf.Min(currentY, (int)_gridHeights[currentX] - 1);
+                    }
                 }
             }
 
@@ -122,17 +140,32 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
                 {
                     int newY = (currentY + deltaY);
                     int columnHeight = (int)_gridHeights[currentX];
+                    int finalY = currentY;
 
-                    if (newY < 0)
+                    if (_wrapAround)
                     {
-                        newY = columnHeight - 1;
+                        if (newY < 0)
+                        {
+                            finalY = columnHeight - 1;
+                        }
+                        else if (newY >= columnHeight)
+                        {
+                            finalY = 0;
+                        }
+                        else
+                        {
+                            finalY = newY;
+                        }
                     }
-                    else if (newY >= columnHeight)
+                    else
                     {
-                        newY = 0;
+                        if (newY >= 0 && newY < columnHeight)
+                        {
+                            finalY = newY;
+                        }
                     }
 
-                    currentY = newY;
+                    currentY = finalY;
                 }
             }
 
