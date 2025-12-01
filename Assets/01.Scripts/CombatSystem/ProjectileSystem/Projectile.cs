@@ -18,7 +18,6 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
             _caster.OnCastSuccessEvent.AddListener(Destroy);
         }
 
-
         public virtual void Shoot(ProjectileData projectileData)
         {
             _destroyTime = projectileData.lifeTime + Time.time;
@@ -29,7 +28,6 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
         {
             if (_isProjectileEnable)
             {
-
                 if (_destroyTime < Time.time)
                 {
                     Destroy();

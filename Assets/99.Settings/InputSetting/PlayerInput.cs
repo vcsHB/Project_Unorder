@@ -50,6 +50,13 @@ namespace InputManage
 
             }
         }
+
+        public void OnMouseDelta(InputAction.CallbackContext context)
+        {
+            
+            InputDirection = context.ReadValue<Vector2>();
+             
+        }
     }
 
 }
