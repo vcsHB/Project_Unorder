@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Project_Unorder.AgentSystem.PlayerManage
 {
 
-    public class Player : Agent
+    public class OrderPlayer : Agent
     {
         [field: SerializeField] public PlayerInput PlayerInput { get; private set; }
         [SerializeField] private PlayerStateMachine _stateMachine;

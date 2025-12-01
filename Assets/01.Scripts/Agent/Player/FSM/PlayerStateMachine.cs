@@ -13,9 +13,9 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
         public PlayerState CurrentState { get; private set; }
 
         [SerializeField, ReadOnly] private string _currentStateDisplayString;
-        private Player _owner;
+        private OrderPlayer _owner;
 
-        public void Initialize(Player owner)
+        public void Initialize(OrderPlayer owner)
         {
             _owner = owner;
             _stateDictionary = new();

@@ -4,7 +4,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
 
     public class PlayerMoveState : PlayerGroundState
     {
-        public PlayerMoveState(Player player, PlayerStateMachine stateMachine, int animationHash) : base(player, stateMachine, animationHash)
+        public PlayerMoveState(OrderPlayer player, PlayerStateMachine stateMachine, int animationHash) : base(player, stateMachine, animationHash)
         {
         }
 

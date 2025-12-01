@@ -32,24 +32,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "MouseDelta",
-                    "type": "Value",
-                    "id": "6ca67822-a3f0-47dc-8d2c-da437814b112",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Mouse",
-                    "type": "Value",
-                    "id": "83836e4a-c769-4a7a-8d61-50b37ccb64f7",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -193,28 +175,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "12baae7a-1ddb-4e15-ac53-63d4c8cbe275",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "MouseDelta",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3a0ed085-4d0b-4f48-96cf-becdfabdaae2",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Mouse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

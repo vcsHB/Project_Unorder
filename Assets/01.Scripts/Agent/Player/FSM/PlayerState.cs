@@ -5,7 +5,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
     public class PlayerState
     {
 
-        protected Player _player;
+        protected OrderPlayer _player;
         protected PlayerStateMachine _stateMachine;
         protected PlayerMover _mover;
         
@@ -14,7 +14,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
         protected int _animationHash;
 
 
-        public PlayerState(Player player, PlayerStateMachine stateMachine, int animationHash)
+        public PlayerState(OrderPlayer player, PlayerStateMachine stateMachine, int animationHash)
         {
             _player = player;
             _stateMachine = stateMachine;
