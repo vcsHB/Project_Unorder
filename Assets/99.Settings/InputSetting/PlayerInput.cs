@@ -8,6 +8,7 @@ namespace InputManage
     public class PlayerInput : ScriptableObject, Controls.IPlayerActions
     {
         public Vector2 InputDirection { get; private set; }
+        public Vector2 MousePosition { get; private set; }
 
         private Controls _controls;
 
