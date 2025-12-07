@@ -4,7 +4,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage
 
     public enum PlayerType
     {
-        Order,
-        Unorder
+        Order = 0,
+        Unorder = 1
     }
 }

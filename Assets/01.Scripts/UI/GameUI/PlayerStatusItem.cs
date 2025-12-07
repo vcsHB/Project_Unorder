@@ -8,9 +8,10 @@ namespace Project_Unorder.UIManage.InGameSceneUI
     public class PlayerStatusItem : MonoBehaviour
     {
 
-        [SerializeField] private PlayerDataSO _playerData;
+        [SerializeField] private PlayerData _playerData;
         [SerializeField] private TextMeshProUGUI _nameText;
-        [SerializeField] private Image _mainGaugeImage;
+        [SerializeField] private UIGauge _healthGauge;
+    
 
 
         private IColorChangeable[] _colorChangeables;
@@ -35,7 +36,7 @@ namespace Project_Unorder.UIManage.InGameSceneUI
             }
         }
 
-        private void SetDataInformation(PlayerDataSO data)
+        private void SetDataInformation(PlayerData data)
         {
             _nameText.text = data.playerType.ToString().ToUpper();
             SetColor(data.personalColor);
