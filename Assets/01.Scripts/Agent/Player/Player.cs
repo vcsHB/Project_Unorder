@@ -9,7 +9,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage
 
         protected override void Awake()
         {
-            PlayerData.RegisterPlayerInstance(this);
+            PlayerData.RegisterPlayerInstance(this); 
             base.Awake();
         }
 

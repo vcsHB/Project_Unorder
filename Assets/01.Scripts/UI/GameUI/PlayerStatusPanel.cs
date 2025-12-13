@@ -9,9 +9,9 @@ namespace Project_Unorder.UIManage.InGameSceneUI
         [SerializeField] private PlayerStatusItem _playerStatusItemPrefab;
         [SerializeField] private Transform _statusContentTrm;
 
-        private List<PlayerData> _playerDataList = new();
+        private List<PlayerDataSO> _playerDataList = new();
 
-        public void AddPlayer(PlayerData playerData)
+        public void AddPlayer(PlayerDataSO playerData)
         {
             
         }
