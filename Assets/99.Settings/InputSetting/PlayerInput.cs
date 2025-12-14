@@ -9,6 +9,8 @@ namespace InputManage
     {
         public Vector2 InputDirection { get; private set; }
         public Vector2 MousePosition { get; private set; }
+        public event Action OnMouseClickPressEvent;
+        public event Action OnMouseClickReleaseEvent;
 
         private Controls _controls;
 
@@ -36,6 +38,8 @@ namespace InputManage
             }
         }
 
+
+
         public void OnInteract(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -54,10 +58,30 @@ namespace InputManage
 
         public void OnMouseDelta(InputAction.CallbackContext context)
         {
-            
+
             InputDirection = context.ReadValue<Vector2>();
-             
         }
+
+        public void OnCursorMove(InputAction.CallbackContext context)
+        {
+            MousePosition = context.ReadValue<Vector2>();
+        }
+
+        public void OnCursorClick(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+
+                OnMouseClickPressEvent?.Invoke();
+            }
+            else if (context.canceled)
+            {
+                OnMouseClickReleaseEvent?.Invoke();
+            }
+        }
+
+
+
     }
 
 }

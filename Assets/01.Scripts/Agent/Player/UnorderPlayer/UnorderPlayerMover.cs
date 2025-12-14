@@ -24,7 +24,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage
 
         private void FixedUpdate()
         {
-            Vector2 mousePosition = Camera.main.WorldToScreenPoint(_owner.PlayerInput.MousePosition);
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(_owner.PlayerInput.MousePosition);
 
             transform.position = mousePosition;
         }
