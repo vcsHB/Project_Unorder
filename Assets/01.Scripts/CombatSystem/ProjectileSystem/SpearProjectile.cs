@@ -12,7 +12,7 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
         protected override void Awake()
         {
             base.Awake();
-            _animator = GetComponent<Animator>();
+            _animator = GetComponentInChildren<Animator>();
             _delayAnimationHash = Animator.StringToHash(_delayAnimationName);
 
         }
