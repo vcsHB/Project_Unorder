@@ -1,9 +1,14 @@
+using Project_Unorder.AgentSystem.PlayerManage;
 using UnityEngine;
 
 namespace Project_Unorder.AgentSystem.InteractSystem
 {
     public class DragZone : MonoBehaviour
     {
+        [Header("External Dependence")]
+        [SerializeField] private ProjectileController _projectileController;
+        [Space(5f)]
+        [Header("Essential Settings")]
         [SerializeField] private DragZoneVisual _visual;
         [SerializeField] private LayerMask _detectTargetLayer;
         [SerializeField] private uint _maxDragTargetAmount = 5;
@@ -60,10 +65,15 @@ namespace Project_Unorder.AgentSystem.InteractSystem
 
                 if (hit.TryGetComponent(out ISelectable selectable))
                 {
-                    selectable.Select();
-                    count++;
+                    if (selectable.Select())
+                    {
+
+                        count++;
+                    }
                 }
             }
+            _projectileController.ChargeProjectile(count);
+
         }
         void OnDrawGizmos()
         {

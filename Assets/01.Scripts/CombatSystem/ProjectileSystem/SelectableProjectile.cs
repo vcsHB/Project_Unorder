@@ -11,9 +11,9 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
         private Vector2 _cachedVelocity;
         private bool _isSelected;
 
-        public virtual void Select()
+        public virtual bool Select()
         {
-            if (_isSelected) return;
+            if (_isSelected) return false;
 
             _isSelected = true;
             _cachedSpeed = _data.speed;
@@ -23,6 +23,8 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
             _rigidCompo.linearVelocity = Vector2.zero;
 
             _selectVisual.Select();
+
+            return true;
         }
 
         public virtual void Release()
@@ -34,6 +36,12 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
             _rigidCompo.linearVelocity = _cachedVelocity;
 
             _selectVisual.Release();
+        }
+
+        protected override void Destroy()
+        {
+            Release();
+            base.Destroy();
         }
     }
 }

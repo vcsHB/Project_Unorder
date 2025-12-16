@@ -3,7 +3,7 @@ namespace Project_Unorder.AgentSystem.InteractSystem
 {
     public interface ISelectable
     {
-        public void Select();
+        public bool Select();
 
         public void Release();
     }
