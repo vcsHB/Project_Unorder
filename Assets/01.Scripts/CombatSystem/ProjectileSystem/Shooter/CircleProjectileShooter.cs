@@ -29,6 +29,7 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
 
                 projectile.Shoot(new ProjectileData()
                 {
+                    targetTrm = null,
                     direction = direction, // The calculated circular direction
                     speed = _speed,
                     lifeTime = _lifeTime,
