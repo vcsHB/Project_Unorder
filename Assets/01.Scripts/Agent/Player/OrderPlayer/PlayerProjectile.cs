@@ -12,7 +12,7 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
         private Transform _target;
         private bool _isFlying = false;
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             if (!_isProjectileEnable || !_isFlying)
                 return;
@@ -26,14 +26,12 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
             // 방향 벡터
             Vector2 dir = (_target.position - transform.position).normalized;
 
-            // 회전 처리
             _visualTrm.right = dir;
 
-            // 가속 증가
             if (_flyProgress < 1f)
                 _flyProgress += Time.fixedDeltaTime / _accelDuration;
 
-            float accelFactor = Mathf.SmoothStep(0f, 1f, _flyProgress); // 부드러운 가속
+            float accelFactor = Mathf.SmoothStep(0f, 1f, _flyProgress);
 
             float speed = _data.speed * accelFactor;
 

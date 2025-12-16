@@ -21,14 +21,9 @@ namespace Project_Unorder.AgentSystem.PlayerManage
         [SerializeField] private ProjectileSO _projectilePool;
         [SerializeField] private List<PlayerProjectile> _activatedProjectileList;
 
-        [Header("Enemy Detect")]
-        [SerializeField] private float _enemyDetectRadius = 5f;
-        [SerializeField] private LayerMask _enemyLayerMask;
-        private Collider2D[] _enemyDetecteds;
-        private int _maxEnemyDetectAmount = 10;
-
         [Header("Projectile Status")]
         [SerializeField] private float _damage = 1f;
+        [SerializeField] private float _speed = 5f;
         [SerializeField] private float _projectileGenerateCooltime = 0.5f;
         private float _currentProjectileCooltime;
 
@@ -47,7 +42,6 @@ namespace Project_Unorder.AgentSystem.PlayerManage
 
         private void Awake()
         {
-            _enemyDetecteds = new Collider2D[_maxEnemyDetectAmount];
             if (_projectilePool == null)
                 Debug.LogError("PlayerProjectile Pool is not Binded");
 
@@ -154,7 +148,9 @@ namespace Project_Unorder.AgentSystem.PlayerManage
 
                 projectile.Shoot(new ProjectileData
                 {
-                    targetTrm = target
+                    targetTrm = target,
+                    speed = _speed,
+                    damage = _damage
                 });
 
                 RecalculateTargetAngles();

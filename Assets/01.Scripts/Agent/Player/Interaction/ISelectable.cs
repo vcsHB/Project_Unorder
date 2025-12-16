@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Project_Unorder.AgentSystem
+namespace Project_Unorder.AgentSystem.InteractSystem
 {
     public interface ISelectable
     {

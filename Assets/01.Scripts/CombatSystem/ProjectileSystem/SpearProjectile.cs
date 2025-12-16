@@ -2,7 +2,7 @@ using UnityEngine;
 namespace Project_Unorder.CombatSystem.ProjectileSystem
 {
 
-    public class SpearProjectile : Projectile
+    public class SpearProjectile : SelectableProjectile
     {
         private Animator _animator;
         [SerializeField] private float _delayTime = 1f;

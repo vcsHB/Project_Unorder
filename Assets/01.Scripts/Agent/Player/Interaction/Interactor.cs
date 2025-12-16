@@ -1,7 +1,7 @@
 using System;
 using Project_Unorder.AgentSystem.PlayerManage;
 using UnityEngine;
-namespace Project_Unorder.AgentSystem
+namespace Project_Unorder.AgentSystem.InteractSystem
 {
 
     public class Interactor : MonoBehaviour, IAgentComponent

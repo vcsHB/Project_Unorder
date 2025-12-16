@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project_Unorder.AgentSystem.PlayerManage
+namespace Project_Unorder.AgentSystem.InteractSystem
 {
     public class DragZone : MonoBehaviour
     {
