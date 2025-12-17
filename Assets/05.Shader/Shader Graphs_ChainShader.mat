@@ -41,11 +41,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _GradientReduceScale: 2.35
+    - _GradientReduceScale: 10.68
     - _Speed: 1
     - _Tiling: 8
     m_Colors:
-    - _Color: {r: 0, g: 0.1332326, b: 1, a: 1}
+    - _Color: {r: 0.4162604, g: 4.563034, b: 31.516981, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1417334601285159324

@@ -18,11 +18,11 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
         public override void UpdateState()
         {
             base.UpdateState();
-            Vector2 direction = _player.PlayerInput.InputDirection;
+            Vector2 direction = _owner.PlayerInput.InputDirection;
             _mover.SetMovement(direction);
 
 
-            if (Mathf.Approximately(_player.PlayerInput.InputDirection.magnitude, 0))
+            if (Mathf.Approximately(_owner.PlayerInput.InputDirection.magnitude, 0))
             {
                 _stateMachine.ChangeState(PlayerStateType.Idle);
             }

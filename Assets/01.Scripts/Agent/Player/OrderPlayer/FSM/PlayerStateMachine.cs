@@ -9,8 +9,8 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
     public class PlayerStateMachine
     {
 
-        private Dictionary<PlayerStateType, PlayerState> _stateDictionary;
-        public PlayerState CurrentState { get; private set; }
+        private Dictionary<PlayerStateType, OrderPlayerState> _stateDictionary;
+        public OrderPlayerState CurrentState { get; private set; }
 
         [SerializeField, ReadOnly] private string _currentStateDisplayString;
         private OrderPlayer _owner;
@@ -23,7 +23,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
             {
                 AddState(item);
             }
-            if (_stateDictionary.TryGetValue(PlayerStateType.Idle, out PlayerState state))
+            if (_stateDictionary.TryGetValue(PlayerStateType.Idle, out OrderPlayerState state))
             {
                 CurrentState = state;
                 _currentStateDisplayString = PlayerStateType.Idle.ToString();
@@ -34,13 +34,13 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
         public void AddState(PlayerStateType type)
         {
             Type t = Type.GetType($"Project_Unorder.AgentSystem.PlayerManage.FSM.Player{type}State");
-            PlayerState state = Activator.CreateInstance(t, _owner, this, 0) as PlayerState;
+            OrderPlayerState state = Activator.CreateInstance(t, _owner, this, 0) as OrderPlayerState;
             _stateDictionary.Add(type, state);
         }
 
         public void ChangeState(PlayerStateType newStateType)
         {
-            if (_stateDictionary.TryGetValue(newStateType, out PlayerState state))
+            if (_stateDictionary.TryGetValue(newStateType, out OrderPlayerState state))
             {
                 CurrentState.Exit();
                 CurrentState = state;

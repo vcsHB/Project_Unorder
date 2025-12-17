@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _caster: {fileID: 264890962784493713}
   _visualTrm: {fileID: 1952702918599541726}
-  _accelDuration: 0.25
+  _accelDuration: 0.2
 --- !u!114 &264890962784493713
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage.FSM
         public override void UpdateState()
         {
             base.UpdateState();
-            float magnitude = _player.PlayerInput.InputDirection.magnitude;
+            float magnitude = _owner.PlayerInput.InputDirection.magnitude;
             if (Mathf.Abs(magnitude) > 0f)
             {
                 _stateMachine.ChangeState(PlayerStateType.Move);

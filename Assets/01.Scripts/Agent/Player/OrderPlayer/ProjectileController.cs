@@ -24,6 +24,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage
         [Header("Projectile Status")]
         [SerializeField] private float _damage = 1f;
         [SerializeField] private float _speed = 5f;
+        [SerializeField] private float _lifeTime = 5f;
         [SerializeField] private float _projectileGenerateCooltime = 0.5f;
         private float _currentProjectileCooltime;
 
@@ -65,7 +66,6 @@ namespace Project_Unorder.AgentSystem.PlayerManage
                     _currentProjectileCooltime = 0f;
                 }
             }
-
             UpdateOrbitProjectiles();
         }
 
@@ -150,7 +150,8 @@ namespace Project_Unorder.AgentSystem.PlayerManage
                 {
                     targetTrm = target,
                     speed = _speed,
-                    damage = _damage
+                    damage = _damage,
+                    lifeTime = _lifeTime
                 });
 
                 RecalculateTargetAngles();
@@ -164,5 +165,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage
         {
             _waitOrderAmount += amount;
         }
+
+
     }
 }
