@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Project_Unorder.CameraSystem
 {
-    public class CameraManager : MonoBehaviour
+    public class CameraManager : MonoSingleton<CameraManager>, IEarlyAwakeableManager
     {
         [SerializeField] private CinemachineCamera _mainCamera;
 
@@ -13,8 +13,10 @@ namespace Project_Unorder.CameraSystem
 
         public CinemachineCamera MainCamera => _mainCamera;
 
-        private void Awake()
+
+        public void PreAwake()
         {
+            
             Debug.Assert(_mainCamera);
 
             RegisterComponents();
@@ -38,7 +40,7 @@ namespace Project_Unorder.CameraSystem
             }
         }
 
-        public new T GetComponent<T>() where T : class, ICameraComponent
+        public T GetCompo<T>() where T : class, ICameraComponent
         {
             if (_components.TryGetValue(typeof(T), out ICameraComponent comp))
             {
@@ -47,5 +49,7 @@ namespace Project_Unorder.CameraSystem
             }
             return null;
         }
+
+
     }
 }

@@ -151,7 +151,7 @@ MonoBehaviour:
   _detectMaxTargetAmount: 3
   _detectTargetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _castOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &5081812067480327738
 MonoBehaviour:
