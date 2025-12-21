@@ -61,7 +61,7 @@ namespace Project_Unorder.UIManage
         }
 
         private void Update()
-        {
+        { // Simple FSM
             switch (_state)
             {
                 case GaugeState.FillingUp:
