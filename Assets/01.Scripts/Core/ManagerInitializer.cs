@@ -1,8 +1,10 @@
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public interface IEarlyAwakeableManager
 {
+    /// <summary>
+    /// Call Earlier Interface Functions Than UnityCicle's Awake
+    /// </summary>
     public void PreAwake();
 
 }

@@ -11,14 +11,18 @@ namespace Project_Unorder.UIManage.InGameSceneUI
         [SerializeField] private PlayerDataSO _playerData;
         [SerializeField] private TextMeshProUGUI _nameText;
         [SerializeField] private UIGauge _healthGauge;
-    
-
 
         private IColorChangeable[] _colorChangeables;
-
+        private Player _owner;
         private void Awake()
         {
+            Debug.Assert(_playerData);
+            Debug.Assert(_nameText);
+            Debug.Assert(_healthGauge);
+
             Initialize();
+            _owner = _playerData.PlayerInstance;
+            
         }
         private void Initialize()
         {
@@ -47,7 +51,7 @@ namespace Project_Unorder.UIManage.InGameSceneUI
         private void OnValidate()
         {
             if (_playerData == null) return;
-            
+
             Initialize();
             SetDataInformation(_playerData);
         }

@@ -7,9 +7,13 @@ namespace Project_Unorder.AgentSystem.PlayerManage
         [field: SerializeField] public PlayerDataSO PlayerData;
         [field: SerializeField] public PlayerInput PlayerInput { get; private set; }
 
-        protected override void Awake()
+        public void RegisterInstance()
         {
             PlayerData.RegisterPlayerInstance(this); 
+            
+        }
+        protected override void Awake()
+        {
             base.Awake();
         }
 
