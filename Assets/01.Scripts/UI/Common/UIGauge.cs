@@ -25,7 +25,6 @@ namespace Project_Unorder.UIManage
         private float _subVelocity;
         private float _subDelayTimer;
 
-
         private GaugeState _state = GaugeState.Idle;
 
         public void SetGaugeFillImmediately(float amount)

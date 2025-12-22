@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LineMaterial
+  m_Name: LineMaterial 1
   m_Shader: {fileID: -6465566751694194690, guid: 048cfa06213dcf6438f8f8675c36dc7c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _ColorMask: 15
     - _LineWidth: 0.529
-    - _Rotation: -1
+    - _Rotation: 1
     - _Speed: 1
     - _Stencil: 0
     - _StencilComp: 8

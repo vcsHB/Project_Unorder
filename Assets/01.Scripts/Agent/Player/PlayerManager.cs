@@ -9,7 +9,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage
         {
             Debug.Assert(_players != null);
             // Debug.Assert(_players.Length == 2); //Just in case
-
+            Debug.Log("[PlayerManager:PreAwake] Player Instance Registered.");
             for (int i = 0; i < _players.Length; i++)
             {
                 if (_players[i] == null)
@@ -23,7 +23,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage
 
         private void OnDestroy()
         {
-            
+
         }
     }
 }
