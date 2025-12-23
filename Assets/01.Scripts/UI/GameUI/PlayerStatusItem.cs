@@ -44,8 +44,6 @@ namespace Project_Unorder.UIManage.InGameSceneUI
             _playerData.PlayerInstance.HealthBody.OnHealthDecreaseEvent += HandleHealthChanged;
         }
 
-
-
         private void Initialize()
         {
             _colorChangeables = GetComponentsInChildren<IColorChangeable>();
