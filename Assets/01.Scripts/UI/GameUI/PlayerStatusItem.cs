@@ -35,24 +35,16 @@ namespace Project_Unorder.UIManage.InGameSceneUI
             _waitForSecond = new WaitForSeconds(_textPrintDelay);
             _owner = _playerData.PlayerInstance;
 
-
             Initialize();
         }
 
         private void Start()
         {
-            if (_isStartRefresh)
-                RefreshData();
-
             _playerData.PlayerInstance.HealthBody.OnHealthIncreaseEvent += HandleHealthChanged;
             _playerData.PlayerInstance.HealthBody.OnHealthDecreaseEvent += HandleHealthChanged;
         }
 
-        private void OnDestroy()
-        {
-            _playerData.PlayerInstance.HealthBody.OnHealthIncreaseEvent -= HandleHealthChanged;
-            _playerData.PlayerInstance.HealthBody.OnHealthDecreaseEvent -= HandleHealthChanged;
-        }
+
 
         private void Initialize()
         {
@@ -91,6 +83,12 @@ namespace Project_Unorder.UIManage.InGameSceneUI
             }
         }
 
+        public void SetPlayerData(PlayerDataSO data)
+        {
+            _playerData = data;
+
+        }
+
         private void SetDataInformation(PlayerDataSO data)
         {
             _nameText.text = data.playerType.ToString().ToUpper();
@@ -106,17 +104,5 @@ namespace Project_Unorder.UIManage.InGameSceneUI
             _animation.Play(_closeKey);
         }
 
-#if UNITY_EDITOR
-
-        private void OnValidate()
-        {
-            if (_playerData == null) return;
-
-            Initialize();
-            SetDataInformation(_playerData);
-        }
-
-
-#endif
     }
 }

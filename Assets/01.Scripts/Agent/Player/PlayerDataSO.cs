@@ -7,7 +7,7 @@ namespace Project_Unorder.AgentSystem.PlayerManage
         public uint id => (uint)playerType;
         public PlayerType playerType;
         public Color personalColor;
-        private Player _playerInstance;
+        [System.NonSerialized] private Player _playerInstance;
 
         public Player PlayerInstance
         {

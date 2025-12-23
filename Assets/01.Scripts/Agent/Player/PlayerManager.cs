@@ -1,9 +1,15 @@
+using Project_Unorder.UIManage.InGameSceneUI.MainUIs;
 using UnityEngine;
 namespace Project_Unorder.AgentSystem.PlayerManage
 {
     public class PlayerManager : MonoSingleton<PlayerManager>, IEarlyAwakeableManager
     {
+        [SerializeField] private PlayerDataSO[] _combatEnterPlayers;
+        [Header("Player Base Set")]
         [SerializeField] private Player[] _players;
+
+        [Header("Essential Settings")]
+        [SerializeField] private PlayerStatusGroup _playerStatusGroup;
 
         public void PreAwake()
         {
@@ -19,6 +25,14 @@ namespace Project_Unorder.AgentSystem.PlayerManage
                 }
                 _players[i].RegisterInstance();
             }
+        }
+
+        private void Awake()
+        {
+            Debug.Assert(_playerStatusGroup);
+            
+            _playerStatusGroup.Initialize(_combatEnterPlayers);
+
         }
 
         private void OnDestroy()
