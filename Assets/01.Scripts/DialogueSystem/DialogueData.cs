@@ -5,10 +5,10 @@ namespace Project_Unorder.DialogueSystem
 {
 
     [System.Serializable]
-    public class DialogueData
+    public class DialogueData : ScriptableObject
     {
-        public Sprite profile;
-        public string teller;
+        public Sprite profileSprite;
+        public LocalizedString tellerName;
         public LocalizedString dialogueContent;
         public SoundSO typingSFX;
     }

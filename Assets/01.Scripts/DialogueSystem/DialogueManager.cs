@@ -4,14 +4,11 @@ using UnityEngine.Localization;
 
 public class DialogueManager : MonoBehaviour
 {
-    public LocalizedStringTable myStringTable;
+    [SerializeField] private LocalizedStringTable _characterNameTable;
     [SerializeField] private DialogueData _data;
 
-    public void GetText(string key)
+    private void Awake()
     {
-        var table = myStringTable.GetTable();
-        var entry = table.GetEntry(key);
 
-        Debug.Log(entry.LocalizedValue);
     }
 }
