@@ -101,11 +101,11 @@ Material:
     - _Surface: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.30499458, b: 1, a: 1}
+    - _BaseColor: {r: 0, g: 0.30588245, b: 1, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0, g: 0.30499455, b: 1, a: 1}
-    - _EmissionColor: {r: 0.4932506, g: 0.63733584, b: 14.259475, a: 1}
+    - _Color: {r: 0, g: 0.30588242, b: 1, a: 1}
+    - _EmissionColor: {r: 0.52259886, g: 5.6598387, b: 14.259479, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

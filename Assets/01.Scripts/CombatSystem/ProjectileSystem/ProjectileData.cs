@@ -4,6 +4,7 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
     [System.Serializable]
     public struct ProjectileData
     {
+        public Transform targetTrm;
         public Vector2 direction;
         public float speed;
         public float lifeTime;

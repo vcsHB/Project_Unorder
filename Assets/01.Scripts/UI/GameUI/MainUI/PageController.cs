@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
 {
@@ -25,14 +24,15 @@ namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs
                 if (Time.time > _endTime)
                 {
                     _isPanelTransition = false;
-                    CurrentWindowPage.HandlePageEnter();
+                    if (CurrentWindowPage != null)
+                        CurrentWindowPage.HandlePageEnter();
                 }
             }
         }
 
         public void SetDefaultPage()
         {
-            HandleMovePage(_defaultPage, 0f);
+            HandleMovePage(_defaultPage, CurrentWindowPage == null ? 0f : CurrentWindowPage.TransitionExitDuration);
         }
 
         private void HandleMovePage(WindowPage nextPage, float transitionDuration)

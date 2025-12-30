@@ -8,6 +8,10 @@ namespace InputManage
     public class PlayerInput : ScriptableObject, Controls.IPlayerActions
     {
         public Vector2 InputDirection { get; private set; }
+        public Vector2 MousePosition { get; private set; }
+        public event Action OnMouseClickPressEvent;
+        public event Action OnMouseClickReleaseEvent;
+        public event Action OnAttackEvent;
 
         private Controls _controls;
 
@@ -35,6 +39,8 @@ namespace InputManage
             }
         }
 
+
+
         public void OnInteract(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -49,6 +55,29 @@ namespace InputManage
             {
 
             }
+        }
+
+        public void OnCursorMove(InputAction.CallbackContext context)
+        {
+            MousePosition = context.ReadValue<Vector2>();
+        }
+
+        public void OnCursorClick(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                OnMouseClickPressEvent?.Invoke();
+            }
+            else if (context.canceled)
+            {
+                OnMouseClickReleaseEvent?.Invoke();
+            }
+        }
+
+        public void OnAttack(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnAttackEvent?.Invoke();
         }
     }
 

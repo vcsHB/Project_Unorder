@@ -1,37 +1,26 @@
 using InputManage;
-using Project_Unorder.AgentSystem.PlayerManage.FSM;
 using UnityEngine;
 namespace Project_Unorder.AgentSystem.PlayerManage
 {
-
     public class Player : Agent
     {
+        [field: SerializeField] public PlayerDataSO PlayerData;
         [field: SerializeField] public PlayerInput PlayerInput { get; private set; }
-        [SerializeField] private PlayerStateMachine _stateMachine;
-        public PlayerStateMachine StateMachine => _stateMachine;
 
+        public void RegisterInstance()
+        {
+            PlayerData.RegisterPlayerInstance(this); 
+            
+        }
         protected override void Awake()
         {
             base.Awake();
-
         }
 
-        protected override void Start()
+        protected virtual void OnDestroy()
         {
-            base.Start();
-            // # Agent:Awake Component All Initialize -> stateMachine Initialize 
-            _stateMachine = new PlayerStateMachine();
-            _stateMachine.Initialize(this);
-
+            PlayerData.ReleasePlayereInstance();
         }
-
-        private void Update()
-        {
-            _stateMachine.UpdateState();
-        }
-
-
 
     }
-
 }

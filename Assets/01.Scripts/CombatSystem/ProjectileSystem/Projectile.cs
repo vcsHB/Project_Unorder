@@ -8,7 +8,9 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
     {
         public event Action<Projectile> OnProjectileDestroyEvent;
         protected Rigidbody2D _rigidCompo;
-        [SerializeField] private CollisionTriggerCaster2D _caster;
+        [SerializeField] protected CollisionTriggerCaster2D _caster;
+        [SerializeField] protected Transform _visualTrm;
+        protected ProjectileData _data;
         protected float _destroyTime;
         protected bool _isProjectileEnable;
         
@@ -18,9 +20,9 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
             _caster.OnCastSuccessEvent.AddListener(Destroy);
         }
 
-
         public virtual void Shoot(ProjectileData projectileData)
         {
+            _data = projectileData;
             _destroyTime = projectileData.lifeTime + Time.time;
             _isProjectileEnable = true;
         }
@@ -29,7 +31,6 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
         {
             if (_isProjectileEnable)
             {
-
                 if (_destroyTime < Time.time)
                 {
                     Destroy();

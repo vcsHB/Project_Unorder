@@ -12,7 +12,8 @@ namespace Project_Unorder.CombatSystem.CasterSystem
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            ForceCast(collision);
+            if (((1 << collision.gameObject.layer) & _detectTargetLayer.value) != 0)
+                ForceCast(collision);
         }
     }
 }

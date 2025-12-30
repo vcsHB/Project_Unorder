@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Project_Unorder.CombatSystem.ProjectileSystem
 {
-    
+
     [CreateAssetMenu(menuName = "SO/ProjectileSO")]
     public class ProjectileSO : ScriptableObject
     {
@@ -12,6 +12,13 @@ namespace Project_Unorder.CombatSystem.ProjectileSystem
         public Stack<Projectile> pool;
 
         #region External Functions
+
+        public Projectile GetProjectile(Vector3 position)
+        {
+            Projectile projectile = GetProjectile();
+            projectile.transform.position = position;
+            return projectile;
+        }
         public Projectile GetProjectile()
         {
             Projectile projectile = pool.Count > 0 ? pool.Pop() : CreateProjectile();
