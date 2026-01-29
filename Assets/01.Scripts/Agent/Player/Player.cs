@@ -16,7 +16,11 @@ namespace Project_Unorder.AgentSystem.PlayerManage
         {
             base.Awake();
         }
-
+        public void SetPlayerActive(bool value)
+        {
+            gameObject.SetActive(value);
+        }
+        
         protected virtual void OnDestroy()
         {
             PlayerData.ReleasePlayereInstance();
