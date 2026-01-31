@@ -15,17 +15,17 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-KR
   m_GUID: 8a0ad22bc6473324fbb39879b5ef6cad
   m_SerializeEntries:
-  - m_GUID: 8d57c6dfa2f76a441bf03b0f6aaeb70c
-    m_Address: Dialogue_Tutorial_ko-KR
+  - m_GUID: 74865bab548164a4597c279fb5fbcf4c
+    m_Address: CharacterName_kr
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-ko-KR
+    - Locale-kr
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a9d2c65fad734da4bb6b786f414fbc19
-    m_Address: CharacterNameTable_ko-KR
+  - m_GUID: f5580ed4f2e75be48ba72622982a74d9
+    m_Address: StaticText_kr
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-ko-KR
+    - Locale-kr
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: cfc8a3c52abb053448885d58a0cd8eb1, type: 2}

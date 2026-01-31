@@ -15,14 +15,14 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-EN
   m_GUID: 3db3a374bc6fd4e489f28a2fa53c8513
   m_SerializeEntries:
-  - m_GUID: bc7306d730f36f740acd4444eedb1154
-    m_Address: CharacterNameTable_en
+  - m_GUID: 5613f9e5015de1246aa60725fbcb27a2
+    m_Address: StaticText_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d1a244923160b1a41ac5ec6c5d15238e
-    m_Address: Dialogue_Tutorial_en
+  - m_GUID: faa6921f8f20ea445a8ce95fb163fb98
+    m_Address: CharacterName_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
