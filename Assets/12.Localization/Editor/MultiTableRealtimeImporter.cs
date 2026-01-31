@@ -10,8 +10,15 @@ using UnityEditor.Localization;
 
 namespace LocalizationTools
 {
+    /// <summary>
+    /// 여러 Localization Table을 프로필로 관리하는 실시간 Importer
+    /// </summary>
     public class MultiTableRealtimeImporter : EditorWindow
     {
+        // 공통 Apps Script URL
+        private string commonAppsScriptUrl = "";
+        
+        // 프로필 리스트
         private List<LocalizationProfile> profiles = new List<LocalizationProfile>();
         private Vector2 scrollPosition;
         private Vector2 profileScrollPosition;
@@ -20,10 +27,9 @@ namespace LocalizationTools
         private string statusMessage = "";
         private int selectedProfileIndex = -1;
 
-        // NEW PROFILE UI
+        // 새 프로필 추가 UI
         private bool showAddProfile = false;
         private string newProfileName = "";
-        private string newProfileUrl = "";
         private StringTableCollection newProfileTable;
 
         [MenuItem("Tools/Localization/Multi-Table Importer")]
@@ -36,11 +42,13 @@ namespace LocalizationTools
         private void OnEnable()
         {
             LoadProfiles();
+            commonAppsScriptUrl = EditorPrefs.GetString("LocalizationCommonAppsScriptUrl", "");
         }
 
         private void OnDisable()
         {
             SaveProfiles();
+            EditorPrefs.SetString("LocalizationCommonAppsScriptUrl", commonAppsScriptUrl);
         }
 
         private void OnGUI()
@@ -51,9 +59,14 @@ namespace LocalizationTools
             EditorGUILayout.LabelField("Multi-Table Localization Importer", EditorStyles.boldLabel);
             EditorGUILayout.HelpBox(
                 "여러 Localization Table을 프로필로 관리합니다.\n" +
-                "각 프로필은 별도의 Google Apps Script URL과 Table을 가집니다.",
+                "하나의 Apps Script URL로 모든 시트를 관리할 수 있습니다.",
                 MessageType.Info
             );
+            EditorGUILayout.Space(10);
+
+            // 공통 Apps Script URL 설정
+            DrawCommonSettings();
+            
             EditorGUILayout.Space(10);
 
             // Status Message
@@ -83,6 +96,23 @@ namespace LocalizationTools
             DrawAddProfileSection();
 
             EditorGUILayout.EndScrollView();
+        }
+
+        private void DrawCommonSettings()
+        {
+            EditorGUILayout.LabelField("Common Settings", EditorStyles.boldLabel);
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+            
+            commonAppsScriptUrl = EditorGUILayout.TextField("Apps Script URL", commonAppsScriptUrl);
+            
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("Test Connection", GUILayout.Width(120)))
+            {
+                TestCommonConnection();
+            }
+            EditorGUILayout.EndHorizontal();
+            
+            EditorGUILayout.EndVertical();
         }
 
         private void DrawProfilesList()
@@ -122,18 +152,10 @@ namespace LocalizationTools
             GUILayout.FlexibleSpace();
 
             // Import 버튼
-            GUI.enabled = !isImporting && profile.enabled && profile.IsValid();
+            GUI.enabled = !isImporting && profile.enabled && profile.IsValid() && !string.IsNullOrEmpty(commonAppsScriptUrl);
             if (GUILayout.Button("Import", GUILayout.Width(70)))
             {
                 ImportProfile(index);
-            }
-            GUI.enabled = true;
-
-            // 테스트 버튼
-            GUI.enabled = !isImporting && profile.enabled && !string.IsNullOrEmpty(profile.appsScriptUrl);
-            if (GUILayout.Button("Test", GUILayout.Width(60)))
-            {
-                TestProfileConnection(index);
             }
             GUI.enabled = true;
 
@@ -156,14 +178,19 @@ namespace LocalizationTools
             // 프로필 상세 정보
             EditorGUI.indentLevel++;
 
-            profile.appsScriptUrl = EditorGUILayout.TextField("API URL", profile.appsScriptUrl);
-
-            profile.tableCollection = (StringTableCollection)EditorGUILayout.ObjectField(
+            // Table Collection은 직접 할당하고 내부적으로 GUID로 저장
+            var currentTable = profile.GetTableCollection();
+            var newTable = (StringTableCollection)EditorGUILayout.ObjectField(
                 "Table Collection",
-                profile.tableCollection,
+                currentTable,
                 typeof(StringTableCollection),
                 false
             );
+            
+            if (newTable != currentTable)
+            {
+                profile.SetTableCollection(newTable);
+            }
 
             profile.autoDetectSheetName = EditorGUILayout.Toggle("Auto Detect Sheet Name", profile.autoDetectSheetName);
 
@@ -173,16 +200,17 @@ namespace LocalizationTools
                 profile.sheetName = EditorGUILayout.TextField("Sheet Name", profile.sheetName);
                 EditorGUI.indentLevel--;
             }
-            else if (profile.tableCollection != null)
+            else if (currentTable != null)
             {
                 EditorGUI.indentLevel++;
-                EditorGUILayout.LabelField("Sheet Name (Auto)", profile.tableCollection.TableCollectionName, EditorStyles.miniLabel);
+                EditorGUILayout.LabelField("Sheet Name (Auto)", currentTable.TableCollectionName, EditorStyles.miniLabel);
                 EditorGUI.indentLevel--;
             }
 
             profile.overwriteExisting = EditorGUILayout.Toggle("Overwrite Existing", profile.overwriteExisting);
             profile.createMissingKeys = EditorGUILayout.Toggle("Create Missing Keys", profile.createMissingKeys);
 
+            // 마지막 Import 정보
             if (profile.lastImportInfo != null)
             {
                 EditorGUILayout.LabelField("Last Import:", EditorStyles.miniLabel);
@@ -204,17 +232,12 @@ namespace LocalizationTools
 
             EditorGUILayout.BeginHorizontal();
 
-            GUI.enabled = !isImporting && profiles.Any(p => p.enabled && p.IsValid());
+            GUI.enabled = !isImporting && profiles.Any(p => p.enabled && p.IsValid()) && !string.IsNullOrEmpty(commonAppsScriptUrl);
             if (GUILayout.Button("Import All Enabled", GUILayout.Height(35)))
             {
                 ImportAllEnabled();
             }
             GUI.enabled = true;
-
-            if (GUILayout.Button("Test All", GUILayout.Height(35)))
-            {
-                TestAllConnections();
-            }
 
             if (GUILayout.Button("Enable All", GUILayout.Height(35)))
             {
@@ -242,7 +265,6 @@ namespace LocalizationTools
                 EditorGUI.indentLevel++;
 
                 newProfileName = EditorGUILayout.TextField("Profile Name", newProfileName);
-                newProfileUrl = EditorGUILayout.TextField("API URL", newProfileUrl);
                 newProfileTable = (StringTableCollection)EditorGUILayout.ObjectField(
                     "Table Collection",
                     newProfileTable,
@@ -252,9 +274,7 @@ namespace LocalizationTools
 
                 EditorGUILayout.Space(5);
 
-                GUI.enabled = !string.IsNullOrEmpty(newProfileName) &&
-                              !string.IsNullOrEmpty(newProfileUrl) &&
-                              newProfileTable != null;
+                GUI.enabled = !string.IsNullOrEmpty(newProfileName) && newProfileTable != null;
 
                 if (GUILayout.Button("Add Profile", GUILayout.Height(30)))
                 {
@@ -272,22 +292,80 @@ namespace LocalizationTools
             var profile = new LocalizationProfile
             {
                 name = newProfileName,
-                appsScriptUrl = newProfileUrl,
-                tableCollection = newProfileTable,
                 enabled = true,
                 overwriteExisting = true,
-                createMissingKeys = true
+                createMissingKeys = true,
+                autoDetectSheetName = true
             };
+            
+            profile.SetTableCollection(newProfileTable);
 
             profiles.Add(profile);
             SaveProfiles();
 
+            // 초기화
             newProfileName = "";
-            newProfileUrl = "";
             newProfileTable = null;
             showAddProfile = false;
 
             statusMessage = $"Profile '{profile.name}' added successfully!";
+        }
+
+        private void TestCommonConnection()
+        {
+            if (string.IsNullOrEmpty(commonAppsScriptUrl))
+            {
+                statusMessage = "Error: Please enter Apps Script URL";
+                return;
+            }
+            
+            EditorCoroutineRunner.StartCoroutine(TestConnectionCoroutine());
+        }
+
+        private IEnumerator TestConnectionCoroutine()
+        {
+            isImporting = true;
+            statusMessage = "Testing connection...";
+            Repaint();
+
+            string url = commonAppsScriptUrl + "?action=ping";
+
+            using (UnityWebRequest request = UnityWebRequest.Get(url))
+            {
+                request.redirectLimit = 10;
+                request.timeout = 15;
+
+                var operation = request.SendWebRequest();
+
+                while (!operation.isDone)
+                {
+                    yield return null;
+                }
+
+                Debug.Log($"[Request Finished] URL: {url}");
+
+                if (request.result != UnityWebRequest.Result.Success)
+                {
+                    string details = $"Code: {request.responseCode} | Error: {request.error}";
+
+                    if (request.responseCode == 0 && string.IsNullOrEmpty(request.error))
+                    {
+                        details += " (Possible Network/SSL Issue or Request Aborted)";
+                    }
+
+                    statusMessage = $"Connection Failed: {details}";
+                    Debug.LogWarning($"[Connection Test Fail] {details}");
+                }
+                else
+                {
+                    string responseText = request.downloadHandler.text;
+                    statusMessage = "Connection Successful!";
+                    Debug.Log($"[Connection Test Success] Response: {responseText}");
+                }
+            }
+
+            isImporting = false;
+            Repaint();
         }
 
         private void ImportProfile(int index)
@@ -327,7 +405,6 @@ namespace LocalizationTools
                 yield return new EditorWaitForSeconds(0.5f);
             }
 
-
             statusMessage = $"Batch Import Complete - Success: {successCount}, Failed: {failCount}";
             isImporting = false;
             Repaint();
@@ -342,8 +419,18 @@ namespace LocalizationTools
                 Repaint();
             }
 
+            var tableCollection = profile.GetTableCollection();
+            if (tableCollection == null)
+            {
+                statusMessage = $"Error ({profile.name}): Table Collection not found!";
+                Debug.LogError($"[{profile.name}] Table Collection reference is broken. GUID: {profile.tableCollectionGuid}");
+                if (updateStatus) isImporting = false;
+                Repaint();
+                yield break;
+            }
+
             string sheetName = profile.GetSheetName();
-            string url = profile.appsScriptUrl + "?action=getSheetData&sheet=" + UnityWebRequest.EscapeURL(sheetName) + "&t=" + DateTime.Now.Ticks;
+            string url = commonAppsScriptUrl + "?action=getSheetData&sheet=" + UnityWebRequest.EscapeURL(sheetName) + "&t=" + DateTime.Now.Ticks;
 
             Debug.Log($"[{profile.name}] Requesting: {url}");
 
@@ -355,7 +442,6 @@ namespace LocalizationTools
 
             while (!operation.isDone)
             {
-
                 yield return null;
             }
 
@@ -381,8 +467,6 @@ namespace LocalizationTools
 
             List<LocalizationEntry> parsedData = null;
 
-
-
             try
             {
                 parsedData = ParseJsonResponse(jsonResponse);
@@ -395,7 +479,6 @@ namespace LocalizationTools
                         string errorMsg = jsonObj["error"].ToString();
                         statusMessage = $"API Error ({profile.name}): {errorMsg}";
 
-                        //
                         if (jsonObj.ContainsKey("availableSheets"))
                         {
                             var sheets = jsonObj["availableSheets"] as List<object>;
@@ -410,7 +493,6 @@ namespace LocalizationTools
                         if (updateStatus) isImporting = false;
                         Repaint();
                         yield break;
-
                     }
 
                     profile.lastImportInfo = new ApiResponseInfo
@@ -443,12 +525,12 @@ namespace LocalizationTools
 
             try
             {
-                ImportToLocalizationTable(profile, parsedData);
+                ImportToLocalizationTable(profile, parsedData, tableCollection);
 
                 statusMessage = $"Success ({profile.name}): Imported {parsedData.Count} entries from sheet '{sheetName}'.";
                 Debug.Log($"[{profile.name}] Successfully imported {parsedData.Count} entries");
 
-                EditorUtility.SetDirty(profile.tableCollection);
+                EditorUtility.SetDirty(tableCollection);
                 AssetDatabase.SaveAssets();
                 SaveProfiles();
             }
@@ -469,7 +551,6 @@ namespace LocalizationTools
         {
             string baseError = request.error;
 
-            // 네트워크 오류 상세 분석
             if (request.result == UnityWebRequest.Result.ConnectionError)
             {
                 return "Connection Failed - Possible causes:\n" +
@@ -511,87 +592,6 @@ namespace LocalizationTools
             }
 
             return baseError;
-        }
-
-        private void TestProfileConnection(int index)
-        {
-            EditorCoroutineRunner.StartCoroutine(TestConnectionCoroutine(profiles[index]));
-        }
-
-        private void TestAllConnections()
-        {
-            EditorCoroutineRunner.StartCoroutine(TestAllConnectionsCoroutine());
-        }
-
-        private IEnumerator TestAllConnectionsCoroutine()
-        {
-            isImporting = true;
-
-            for (int i = 0; i < profiles.Count; i++)
-            {
-                if (!profiles[i].enabled || string.IsNullOrEmpty(profiles[i].appsScriptUrl))
-                    continue;
-
-                yield return TestConnectionCoroutine(profiles[i], false);
-                yield return new EditorWaitForSeconds(0.3f);
-            }
-
-            statusMessage = "All connection tests complete.";
-            isImporting = false;
-            Repaint();
-        }
-
-        private IEnumerator TestConnectionCoroutine(LocalizationProfile profile, bool updateStatus = true)
-        {
-            if (updateStatus)
-            {
-                isImporting = true;
-                statusMessage = $"Testing connection for '{profile.name}'...";
-                Repaint();
-            }
-
-            string url = profile.appsScriptUrl + "?action=ping";
-
-            // 1. WebRequest 생성 및 설정 강화
-            using (UnityWebRequest request = UnityWebRequest.Get(url))
-            {
-                // 구글 서버의 리다이렉션을 충분히 따라가도록 설정
-                request.redirectLimit = 10;
-                request.timeout = 15; // 네트워크 지연 고려 15초 설정
-
-                // 2. 비동기 작업 시작
-                var operation = request.SendWebRequest();
-
-                while (!operation.isDone)
-                {
-                    yield return null;
-                }
-
-                Debug.Log($"[Request Finished] URL: {url}");
-                if (request.result != UnityWebRequest.Result.Success)
-                {
-                    string details = $"Code: {request.responseCode} | Error: {request.error}";
-                    if (request.responseCode == 0 && string.IsNullOrEmpty(request.error))
-                    {
-                        details += " (Possible Network/SSL Issue or Request Aborted)";
-                    }
-
-                    statusMessage = $"Connection Failed: {details}";
-                    Debug.LogWarning($"[Connection Test Fail] {details}");
-                }
-                else
-                {
-                    string responseText = request.downloadHandler.text;
-                    statusMessage = $"Connection OK ({profile.name})";
-                    Debug.Log($"[Connection Test Success] {profile.name} | Response: {responseText}");
-                }
-            }
-
-            if (updateStatus)
-            {
-                isImporting = false;
-                Repaint();
-            }
         }
 
         private List<LocalizationEntry> ParseJsonResponse(string json)
@@ -643,9 +643,9 @@ namespace LocalizationTools
             return entries;
         }
 
-        private void ImportToLocalizationTable(LocalizationProfile profile, List<LocalizationEntry> entries)
+        private void ImportToLocalizationTable(LocalizationProfile profile, List<LocalizationEntry> entries, StringTableCollection tableCollection)
         {
-            if (profile.tableCollection == null || entries == null)
+            if (tableCollection == null || entries == null)
                 return;
 
             int importedCount = 0;
@@ -654,7 +654,7 @@ namespace LocalizationTools
 
             foreach (var entry in entries)
             {
-                bool entryExists = profile.tableCollection.SharedData.Contains(entry.key);
+                bool entryExists = tableCollection.SharedData.Contains(entry.key);
 
                 if (entryExists && !profile.overwriteExisting)
                 {
@@ -670,7 +670,7 @@ namespace LocalizationTools
 
                 if (!entryExists)
                 {
-                    profile.tableCollection.SharedData.AddKey(entry.key);
+                    tableCollection.SharedData.AddKey(entry.key);
                     importedCount++;
                 }
                 else
@@ -678,7 +678,7 @@ namespace LocalizationTools
                     updatedCount++;
                 }
 
-                foreach (var table in profile.tableCollection.StringTables)
+                foreach (var table in tableCollection.StringTables)
                 {
                     if (table == null) continue;
 
@@ -750,30 +750,64 @@ namespace LocalizationTools
     public class LocalizationProfile
     {
         public string name;
-        public string appsScriptUrl;
-        public string sheetName;  
-        public StringTableCollection tableCollection;
+        public string sheetName;
+        public string tableCollectionGuid;  // GUID로 저장하여 레퍼런스 유지
         public bool enabled = true;
         public bool overwriteExisting = true;
         public bool createMissingKeys = true;
-        public bool autoDetectSheetName = true; 
+        public bool autoDetectSheetName = true;
 
         [NonSerialized]
         public ApiResponseInfo lastImportInfo;
 
+        [NonSerialized]
+        private StringTableCollection cachedTableCollection;
+
         public bool IsValid()
         {
-            return !string.IsNullOrEmpty(appsScriptUrl) && tableCollection != null;
+            return GetTableCollection() != null;
+        }
+
+        public StringTableCollection GetTableCollection()
+        {
+            if (cachedTableCollection != null)
+                return cachedTableCollection;
+
+            if (string.IsNullOrEmpty(tableCollectionGuid))
+                return null;
+
+            string path = AssetDatabase.GUIDToAssetPath(tableCollectionGuid);
+            if (string.IsNullOrEmpty(path))
+                return null;
+
+            cachedTableCollection = AssetDatabase.LoadAssetAtPath<StringTableCollection>(path);
+            return cachedTableCollection;
+        }
+
+        public void SetTableCollection(StringTableCollection table)
+        {
+            cachedTableCollection = table;
+            if (table != null)
+            {
+                tableCollectionGuid = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(table));
+            }
+            else
+            {
+                tableCollectionGuid = "";
+            }
         }
 
         public string GetSheetName()
         {
-            // use in Empty case
             if (!string.IsNullOrEmpty(sheetName))
                 return sheetName;
 
-            if (autoDetectSheetName && tableCollection != null)
-                return tableCollection.TableCollectionName;
+            if (autoDetectSheetName)
+            {
+                var tableCollection = GetTableCollection();
+                if (tableCollection != null)
+                    return tableCollection.TableCollectionName;
+            }
 
             return "";
         }
