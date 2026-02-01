@@ -56,13 +56,21 @@ namespace Project_Unorder.DialogueSystem
 
         protected virtual IEnumerator ReadingTextRoutine()
         {
-            _contentText.maxVisibleCharacters = 0;
             _contentText.text = _content;
-            //InitNodeAnim(node);
+            _contentText.maxVisibleCharacters = 0;
+
+            yield return null;
+
+            int totalVisibleChars = _contentText.textInfo.characterCount;
+
             _isReadingDialogue = true;
-            while (_contentText.maxVisibleCharacters < _contentText.text.Length)
+
+            while (_contentText.maxVisibleCharacters < totalVisibleChars)
             {
-                if (_contentText.text[_contentText.maxVisibleCharacters++] == ' ') continue;
+                _contentText.maxVisibleCharacters++;
+
+                var currentCharInfo = _contentText.textInfo.characterInfo[_contentText.maxVisibleCharacters - 1];
+                if (char.IsWhiteSpace(currentCharInfo.character)) continue;
 
                 if (_typingSFX != null)
                     SoundController.Instance.PlaySound(_typingSFX, transform.position);
@@ -70,6 +78,7 @@ namespace Project_Unorder.DialogueSystem
                 yield return new WaitForSeconds(_textOutDelay);
                 yield return new WaitUntil(() => StopReading == false);
             }
+
             OnSpeechOverEvent?.Invoke();
             _isReadingDialogue = false;
         }
