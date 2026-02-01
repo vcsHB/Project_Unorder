@@ -1,3 +1,4 @@
+using System;
 using Core.TextUtil;
 using Project_Unorder.DialogueSystem;
 using UnityEngine;
@@ -25,7 +26,8 @@ namespace Project_Unorder.FlowSystem
         public uint EndStepIndex => _endStepIndex;
         private uint _currentStepIndex;
         private bool _isStarted = false;
-        public override bool Execute()
+
+        public override void Execute()
         {
             //if (_startStepIndex > _endStepIndex) return;
             if (!_isStarted)
@@ -34,16 +36,27 @@ namespace Project_Unorder.FlowSystem
                 GlobalDialogueChannel.SetDialogueOwner(_character, true);
                 _isStarted = true;
             }
-            
+            GlobalDialogueChannel.OnDialogueContinueEvent += HandleContinue;
+            HandleContinue();
+        }
+
+        private void OnDestroy()
+        {
+            if (_isStarted)
+                GlobalDialogueChannel.OnDialogueContinueEvent -= HandleContinue;
+        }
+
+        private void HandleContinue()
+        {
             BroadCastDialogueText(_currentStepIndex);
+
             ++_currentStepIndex;
             if (_currentStepIndex > _endStepIndex)
             {
                 _isStarted = false;
+                GlobalDialogueChannel.OnDialogueContinueEvent -= HandleContinue;
                 InvokeCueComplete();
-                return true;
             }
-            return false;
         }
 
         private void BroadCastDialogueText(uint index)

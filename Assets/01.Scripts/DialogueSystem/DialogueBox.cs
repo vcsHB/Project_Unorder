@@ -1,17 +1,20 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using MINISoundManage;
+using Project_Unorder.UIManage.InGameSceneUI;
 using TMPro;
 using UnityEngine;
 namespace Project_Unorder.DialogueSystem
 {
 
-    public class DialogueBox : MonoBehaviour
+    public class DialogueBox : AnimationWindowPanel
     {
         public event Action OnSpeechOverEvent;
         [SerializeField] private CharacterData _owner;
 
         [Header("Essential Settings")]
+        [SerializeField] private AnimationWindowPanel _animationPanel;
         [SerializeField] private TextMeshProUGUI _ownerNameText;
         [SerializeField] private TextMeshProUGUI _contentText;
         [SerializeField] private float _textOutDelay = 0.1f;
@@ -19,8 +22,16 @@ namespace Project_Unorder.DialogueSystem
         [SerializeField] private bool _isReadingDialogue;
         public bool StopReading { get; set; }
         public float TextOutDelay => _textOutDelay;
+
+        protected bool _playingEndAnimation = false;
+        public bool PlayingEndAnimation => _playingEndAnimation;
         private string _content;
         private SoundSO _typingSFX;
+
+        protected override void Awake()
+        {
+            base.Awake();
+        }
 
 
         public void SetTextOutDelay(float outDelay)
@@ -41,6 +52,7 @@ namespace Project_Unorder.DialogueSystem
             StartCoroutine(ReadingTextRoutine());
 
         }
+        public virtual void CompleteEndAnimation() => _playingEndAnimation = false;
 
         protected virtual IEnumerator ReadingTextRoutine()
         {

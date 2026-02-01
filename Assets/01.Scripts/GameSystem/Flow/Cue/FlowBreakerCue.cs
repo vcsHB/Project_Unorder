@@ -3,9 +3,8 @@ namespace Project_Unorder.FlowSystem
 {
     public class FlowBreakerCue : FlowCue
     { // Flow PAUSE
-        public override bool Execute()
+        public override void Execute()
         {
-            return false;
         }
 
         public void EscapeFreeze()

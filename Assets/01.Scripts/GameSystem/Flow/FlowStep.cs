@@ -21,6 +21,7 @@ namespace Project_Unorder.FlowSystem
         {
             _cues = GetComponentsInChildren<FlowCue>();
             _currentCueIndex = 0;
+            StartFlow();
         }
 
         public virtual void StartFlow()
@@ -39,12 +40,15 @@ namespace Project_Unorder.FlowSystem
         private void ExecuteCurrentCue()
         {
             CurrentCue.OnCueCompleteEvent += HandleCueComplete;
+            Debug.Log($"EXECUTED in flowIndex:{_flowLevel} : FlowCue(idx{_currentCueIndex}) Enter.");
             CurrentCue.Execute();
+
         }
 
         private void HandleCueComplete(float delayTime)
         {
             CurrentCue.OnCueCompleteEvent -= HandleCueComplete;
+            Debug.Log($"EXECUTED in flowIndex:{_flowLevel} : FlowCue(idx:{_currentCueIndex}) Complete. delay:{delayTime}s");
             if (delayTime > 0f)
                 Invoke(nameof(MoveToNextCue), delayTime);
             else

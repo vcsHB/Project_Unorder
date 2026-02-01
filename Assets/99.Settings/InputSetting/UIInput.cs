@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace InputManage
+namespace Project_Unorder.InputManage
 {
     [CreateAssetMenu(menuName = "SO/Input/UIInput")]
     public class UIInput : ScriptableObject, Controls.IUIActions
@@ -32,6 +32,8 @@ namespace InputManage
 
         public void OnSubmit(InputAction.CallbackContext context)
         {
+            if(!GlobalInputConfig.UI_SUBMIT) return;
+            
             if (context.performed)
             {
                 OnSubmitEvent?.Invoke();
@@ -40,6 +42,8 @@ namespace InputManage
 
         public void OnCancel(InputAction.CallbackContext context)
         {
+            if(!GlobalInputConfig.UI_CANCEL) return;
+
             if (context.performed)
             {
                 OnCancelEvent?.Invoke();
@@ -64,7 +68,7 @@ namespace InputManage
 
         public void OnSwtich(InputAction.CallbackContext context)
         {
-            if(context.performed)
+            if (context.performed)
             {
                 OnPanelSwitchEvent?.Invoke();
             }

@@ -1,4 +1,4 @@
-using InputManage;
+using Project_Unorder.InputManage;
 using UnityEngine;
 namespace Project_Unorder.AgentSystem.PlayerManage
 {

@@ -5,26 +5,27 @@ namespace Project_Unorder.FlowSystem
 
     public class MoveObjectCue : FlowCue
     {
-        [SerializeField] private Transform _targetTrm;
-        [SerializeField] private Vector2 _targetPosition;
-        [SerializeField] private float _duration = 1f;
-        [SerializeField] private Ease _ease;
+        [SerializeField] protected Transform _targetTrm;
+        [SerializeField] protected Vector2 _targetPosition;
+        [SerializeField] protected float _duration = 1f;
+        [SerializeField] protected Ease _ease;
 
 #if UNITY_EDITOR
         [Header("Gizmos Setting")]
-        [SerializeField] private Color _gizmosColor = Color.green;
-        [SerializeField] private Color _targetPositionGizmosColor = Color.green;
-        [SerializeField] private float _gizmosScale = 0.3f;
+        [SerializeField] protected Color _gizmosColor = Color.green;
+        [SerializeField] protected Color _targetPositionGizmosColor = Color.green;
+        [SerializeField] protected float _gizmosScale = 0.3f;
 #endif
 
-        public override bool Execute()
+        public override void Execute()
         {
-            _targetTrm.DOMove(_targetPosition, _duration).SetEase(_ease);
-            return true;
+            _targetTrm.DOMove(_targetPosition, _duration)
+                .SetEase(_ease)
+                .OnComplete(InvokeCueComplete);
         }
 
 #if UNITY_EDITOR
-        private void OnDrawGizmos()
+        protected void OnDrawGizmos()
         {
             if (_targetTrm == null)
                 return;

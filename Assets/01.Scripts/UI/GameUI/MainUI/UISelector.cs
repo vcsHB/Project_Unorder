@@ -1,6 +1,5 @@
-using System;
 using System.Collections.Generic;
-using InputManage;
+using Project_Unorder.InputManage;
 using UnityEngine;
 
 namespace Project_Unorder.UIManage.InGameSceneUI.MainUIs

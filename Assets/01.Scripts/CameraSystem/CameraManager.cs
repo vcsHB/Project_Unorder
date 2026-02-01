@@ -4,7 +4,10 @@ using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Project_Unorder.CameraSystem
-{
+{  
+    /// <summary>
+    /// IEarlyAwakeableManager. For Camera Manage, OBJ: Follow control, Shaking etc...
+    /// </summary>
     public class CameraManager : MonoSingleton<CameraManager>, IEarlyAwakeableManager
     {
         [SerializeField] private CinemachineCamera _mainCamera;

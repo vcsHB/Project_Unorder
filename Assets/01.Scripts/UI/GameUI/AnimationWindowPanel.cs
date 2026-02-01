@@ -13,7 +13,6 @@ namespace Project_Unorder.UIManage.InGameSceneUI
         {
             _canvasGroup = GetComponent<CanvasGroup>();
 
-
         }
 
         [ContextMenu("DebugOpen")]

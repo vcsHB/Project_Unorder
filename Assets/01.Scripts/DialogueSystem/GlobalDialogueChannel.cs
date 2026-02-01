@@ -7,6 +7,7 @@ namespace Project_Unorder.DialogueSystem
     {
         public static event Action<bool> OnDialogueToggleEvent;
         public static event Action<CharacterData, bool> OnDialogueBoxOwnerToggleEvent;
+        public static event Action OnDialogueContinueEvent;
         private static OnDialoguePrintEvent OnDialogueBroadcast;
 
         public static void AddListener(OnDialoguePrintEvent action)
@@ -37,6 +38,11 @@ namespace Project_Unorder.DialogueSystem
         {
             OnDialogueBroadcast = null;
 
+        }
+
+        public static void ContinueDialogue()
+        {
+            OnDialogueContinueEvent?.Invoke();
         }
 
     }

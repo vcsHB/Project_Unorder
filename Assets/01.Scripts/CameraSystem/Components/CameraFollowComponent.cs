@@ -6,12 +6,14 @@ namespace Project_Unorder.CameraSystem
     {
         [SerializeField] private Transform _target;
         private Transform _defaultFollowTarget = null;
+        public Transform Target => _target;
+        
         public override void Initialize(CameraManager manager)
         {
             base.Initialize(manager);
             _target = manager.MainCamera.Follow;
             _defaultFollowTarget = _target;
-            if(_target == null)
+            if (_target == null)
             {
                 Debug.LogWarning("Default Camera:FollowTarget is Not Binded");
             }

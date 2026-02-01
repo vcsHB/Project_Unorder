@@ -10,7 +10,7 @@ namespace Project_Unorder.FlowSystem
         public event Action<float> OnCueCompleteEvent; // _delay
         [SerializeField] protected float _delayToNextCue = 1f;
 
-        public abstract bool Execute();
+        public abstract void Execute();
 
         protected void InvokeCueComplete()
         {

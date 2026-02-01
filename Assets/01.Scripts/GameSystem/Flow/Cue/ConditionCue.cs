@@ -5,9 +5,8 @@ namespace Project_Unorder.FlowSystem
     public abstract class ConditionCue : FlowCue
     {
         
-        public override bool Execute()
+        public override void Execute()
         {
-            return false;
         }
     }
 }

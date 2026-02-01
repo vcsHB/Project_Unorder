@@ -2,8 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace InputManage
+namespace Project_Unorder.InputManage
 {
+
     [CreateAssetMenu(menuName = "SO/Input/PlayerInput")]
     public class PlayerInput : ScriptableObject, Controls.IPlayerActions
     {
@@ -32,6 +33,8 @@ namespace InputManage
 
         public void OnMove(InputAction.CallbackContext context)
         {
+            if (!GlobalInputConfig.PLAYER_MOVE) return;
+
             InputDirection = context.ReadValue<Vector2>();
             if (context.canceled)
             {
@@ -43,17 +46,21 @@ namespace InputManage
 
         public void OnInteract(InputAction.CallbackContext context)
         {
+            if (!GlobalInputConfig.PLAYER_INTERACT) return;
+
             if (context.performed)
             {
-
+                //TODO
             }
         }
 
         public void OnDash(InputAction.CallbackContext context)
         {
+            if (!GlobalInputConfig.PLAYER_DASH) return;
+
             if (context.performed)
             {
-
+                // TODO
             }
         }
 
