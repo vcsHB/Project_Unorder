@@ -36,13 +36,13 @@ namespace Project_Unorder.DialogueSystem
 
         public void StartSpeech(ref DialogueLocalizedData data)
         {
-            _content = data.content.GetLocalizedString();
+            _content = data.content;
             _typingSFX = data.typingSFX;
-            StartCoroutine(ReadingNormalNodeRoutine());
+            StartCoroutine(ReadingTextRoutine());
 
         }
 
-        protected virtual IEnumerator ReadingNormalNodeRoutine()
+        protected virtual IEnumerator ReadingTextRoutine()
         {
             _contentText.maxVisibleCharacters = 0;
             _contentText.text = _content;
@@ -59,6 +59,7 @@ namespace Project_Unorder.DialogueSystem
                 yield return new WaitUntil(() => StopReading == false);
             }
             OnSpeechOverEvent?.Invoke();
+            _isReadingDialogue = false;
         }
 
 

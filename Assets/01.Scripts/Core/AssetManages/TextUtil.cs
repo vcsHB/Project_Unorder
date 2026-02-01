@@ -8,8 +8,8 @@ namespace Core.TextUtil
 {
     public enum TextType
     {
-        Common,
-        UI,
+        StaticText,
+        Character,
         Dialogue
     }
 
@@ -24,9 +24,9 @@ namespace Core.TextUtil
         private static readonly Dictionary<TextType, string> _tableNameCache =
             new()
             {
-                { TextType.Common,   "CommonTextTable" },
-                { TextType.UI,       "UITextTable" },
-                { TextType.Dialogue, "DialogueTextTable" },
+                { TextType.StaticText,"StaticText" },
+                { TextType.Character,   "Character" },
+                { TextType.Dialogue, "Dialogue" },
             };
 
         private static readonly Dictionary<Type, Dictionary<Enum, string>> _enumNameCache
@@ -54,7 +54,7 @@ namespace Core.TextUtil
         {
             if (!_initialized)
             {
-                Debug.LogError("TextUtil not initialized");
+                Debug.LogWarning("TextUtil not initialized");
                 return null;
             }
 

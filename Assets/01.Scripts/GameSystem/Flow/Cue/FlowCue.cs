@@ -1,16 +1,21 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 namespace Project_Unorder.FlowSystem
 {
-    
+
     public abstract class FlowCue : MonoBehaviour
     {
-        public event Action OnCueActionCompleteEvent;
-        public abstract void Execute();
+        public UnityEvent OnCueCompleteUnityEvent;
+        public event Action<float> OnCueCompleteEvent; // _delay
+        [SerializeField] protected float _delayToNextCue = 1f;
 
-        protected void InvokeActionComplete()
+        public abstract bool Execute();
+
+        protected void InvokeCueComplete()
         {
-            OnCueActionCompleteEvent?.Invoke();
+            OnCueCompleteEvent?.Invoke(_delayToNextCue);
+            OnCueCompleteUnityEvent?.Invoke();
         }
     }
 }

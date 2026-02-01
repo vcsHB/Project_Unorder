@@ -17,19 +17,22 @@ namespace Project_Unorder.FlowSystem
         [SerializeField] private float _gizmosScale = 0.3f;
 #endif
 
-        public override void Execute()
+        public override bool Execute()
         {
             _targetTrm.DOMove(_targetPosition, _duration).SetEase(_ease);
+            return true;
         }
 
 #if UNITY_EDITOR
-        private void OnDrawGizmosSelected()
+        private void OnDrawGizmos()
         {
+            if (_targetTrm == null)
+                return;
             Gizmos.color = _gizmosColor;
             Gizmos.DrawSphere(_targetPosition, _gizmosScale);
             Gizmos.DrawLine(_targetTrm.position, _targetPosition);
             Gizmos.color = _targetPositionGizmosColor;
-            Gizmos.DrawSphere(_targetPosition, _gizmosScale);
+            Gizmos.DrawSphere(_targetTrm.position, _gizmosScale);
         }
 #endif
     }
