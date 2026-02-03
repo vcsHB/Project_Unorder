@@ -18,7 +18,7 @@ namespace Project_Unorder.VolumeManage
 
         public void PreAwake()
         {
-            Debug.Assert(_globalVolume != null, "Global Volume이 할당되지 않았습니다.");
+            Debug.Assert(_globalVolume != null, "[VolumeManager] Global Volume is not Bind");
 
             RegisterComponents();
             InitializeComponents();
