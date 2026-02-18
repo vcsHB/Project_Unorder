@@ -30,6 +30,7 @@ namespace MINISoundManage
         private float _fadeTimer = 0f;
         private float _fadeOutStartVol = 0f;
         private float _fadeInStartVol = 0f;
+        private float _targetVolume = 1f;
 
         private readonly Queue<SoundSO> _musicQueue = new Queue<SoundSO>();
 
@@ -161,11 +162,21 @@ namespace MINISoundManage
             _prevAudioSource = _currentAudioSource;
 
             _currentAudioSource = _audioPlayers[_playerIndex];
-            _currentAudioSource.clip = data.clip;
+            ApplySoundSO(_currentAudioSource, data);
             _currentAudioSource.volume = 0f;
             _currentAudioSource.Play();
 
             BeginCrossFade();
+        }
+        private void ApplySoundSO(AudioSource source, SoundSO data)
+        {
+            source.clip = data.clip;
+            source.loop = data.loop;
+            source.pitch = data.randomizePitch
+                ? data.pitch + UnityEngine.Random.Range(-data.randomPitchModifier, data.randomPitchModifier)
+                : data.pitch;
+
+            _targetVolume = data.volume;
         }
 
         private void BeginCrossFade()
@@ -187,7 +198,7 @@ namespace MINISoundManage
                 _prevAudioSource.volume = Mathf.Lerp(_fadeOutStartVol, 0f, t);
 
             if (_currentAudioSource != null)
-                _currentAudioSource.volume = Mathf.Lerp(_fadeInStartVol, 1f, t);
+                _currentAudioSource.volume = Mathf.Lerp(_fadeInStartVol, _targetVolume, t);
 
             if (t >= 1f)
             {
