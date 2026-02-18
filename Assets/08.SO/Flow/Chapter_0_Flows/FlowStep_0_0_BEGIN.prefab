@@ -158,7 +158,7 @@ MonoBehaviour:
   _key: DL
   _chapterIndex: 0
   _startStepIndex: 0
-  _endStepIndex: 10
+  _endStepIndex: 15
   _isCharacterExit: 0
 --- !u!1 &3036875928804582231
 GameObject:
@@ -191,6 +191,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3653167130367096874}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3093211561983074645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4321680650461662534}
+  m_Layer: 0
+  m_Name: TriggerCue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4321680650461662534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3093211561983074645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2670740984078229773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4006585360912441987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4188453406861227704}
+  - component: {fileID: 5134800491963050182}
+  m_Layer: 0
+  m_Name: VolumeInit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4188453406861227704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4006585360912441987}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2670740984078229773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5134800491963050182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4006585360912441987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773a4f0dd76356c4db5d5bb2cd27cc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCueCompleteUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _delayToNextCue: 1
+  _effectType: 0
+  _duration: 0
+  _easeType: 6
+  _targetValues:
+    Intensity: 0
+    Contrast: 0
+    Saturation: -100
+    FilterColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4369865249500664533
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +327,62 @@ MonoBehaviour:
       m_Calls: []
   _delayToNextCue: 0
   _modeToggle: 1
+--- !u!1 &4828870169302990249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6181776522974817148}
+  - component: {fileID: 1955108757832757878}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6181776522974817148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828870169302990249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2670740984078229773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1955108757832757878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828870169302990249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773a4f0dd76356c4db5d5bb2cd27cc00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCueCompleteUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _delayToNextCue: 1
+  _effectType: 0
+  _duration: 10
+  _easeType: 6
+  _targetValues:
+    Intensity: 0
+    Contrast: 0
+    Saturation: 0
+    FilterColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8733552670833838848
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +413,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4188453406861227704}
+  - {fileID: 4321680650461662534}
+  - {fileID: 6181776522974817148}
   - {fileID: 3653167130367096874}
   - {fileID: 2197689935540571793}
   - {fileID: 4022668532698846749}

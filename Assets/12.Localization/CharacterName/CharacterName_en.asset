@@ -23,7 +23,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18617118683136
-    m_Localized: test
+    m_Localized: UNORDER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6566806261002240
+    m_Localized: ORDER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6566806315528192
+    m_Localized: EXCEPTION
     m_Metadata:
       m_Items: []
   references:

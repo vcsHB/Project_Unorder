@@ -22,6 +22,50 @@ MonoBehaviour:
     m_Localized: MENU
     m_Metadata:
       m_Items: []
+  - m_Id: 6831016228352000
+    m_Localized: MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016333209600
+    m_Localized: PAUSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016333209601
+    m_Localized: CONTINUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016341598208
+    m_Localized: CONFIG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016341598209
+    m_Localized: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016341598210
+    m_Localized: Log_BOX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016341598211
+    m_Localized: PAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016341598212
+    m_Localized: CONTACTOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016341598213
+    m_Localized: RULE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016341598214
+    m_Localized: SIGNAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6831016341598215
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
