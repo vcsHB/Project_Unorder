@@ -9,6 +9,8 @@ namespace MINISoundManage
         [SerializeField] private float _minSoundPlayInterval = 0.05f;
         [SerializeField] private SoundPool _pool;
         private Dictionary<int, float> _lastPlayTimes = new Dictionary<int, float>();
+        [SerializeField] private MusicPlayer _musicPlayer;
+        public MusicPlayer MusicPlayer => _musicPlayer;
 
         private void Start()
         {

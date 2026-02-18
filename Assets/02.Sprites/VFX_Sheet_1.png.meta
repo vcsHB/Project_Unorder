@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,10 +51,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,10 +75,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,9 +106,9 @@ TextureImporter:
       name: VFX_Sheet_1_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 64
-        width: 62
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: VFX_Sheet_1_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 63
-        width: 65
-        height: 65
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,11 +146,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: VFX_Sheet_1_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24afbf438f36ef47b2da6e63214d3e6
+      internalID: 290062733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Sheet_1_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da58778e411fd144e8477fb26987b128
+      internalID: 1473321821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b054d489f8bb1c84abc6e88022bf9dab
     internalID: 0
     vertices: []
     indices: 
@@ -162,6 +206,8 @@ TextureImporter:
     nameFileIdTable:
       VFX_Sheet_1_0: 6737529244452631101
       VFX_Sheet_1_1: -5997735126101109655
+      VFX_Sheet_1_2: 290062733
+      VFX_Sheet_1_3: 1473321821
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
