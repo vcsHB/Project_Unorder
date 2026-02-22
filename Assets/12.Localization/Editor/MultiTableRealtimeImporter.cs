@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Localization.Tables;
+using DataManage;
 using System;
 using System.Collections.Generic;
 using UnityEngine.Networking;
@@ -17,7 +18,7 @@ namespace LocalizationTools
     {
         // 공통 Apps Script URL
         private string commonAppsScriptUrl = "";
-        
+
         // 프로필 리스트
         private List<LocalizationProfile> profiles = new List<LocalizationProfile>();
         private Vector2 scrollPosition;
@@ -66,7 +67,7 @@ namespace LocalizationTools
 
             // 공통 Apps Script URL 설정
             DrawCommonSettings();
-            
+
             EditorGUILayout.Space(10);
 
             // Status Message
@@ -102,16 +103,16 @@ namespace LocalizationTools
         {
             EditorGUILayout.LabelField("Common Settings", EditorStyles.boldLabel);
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-            
+
             commonAppsScriptUrl = EditorGUILayout.TextField("Apps Script URL", commonAppsScriptUrl);
-            
+
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("Test Connection", GUILayout.Width(120)))
             {
                 TestCommonConnection();
             }
             EditorGUILayout.EndHorizontal();
-            
+
             EditorGUILayout.EndVertical();
         }
 
@@ -186,7 +187,7 @@ namespace LocalizationTools
                 typeof(StringTableCollection),
                 false
             );
-            
+
             if (newTable != currentTable)
             {
                 profile.SetTableCollection(newTable);
@@ -297,7 +298,7 @@ namespace LocalizationTools
                 createMissingKeys = true,
                 autoDetectSheetName = true
             };
-            
+
             profile.SetTableCollection(newProfileTable);
 
             profiles.Add(profile);
@@ -318,7 +319,7 @@ namespace LocalizationTools
                 statusMessage = "Error: Please enter Apps Script URL";
                 return;
             }
-            
+
             EditorCoroutineRunner.StartCoroutine(TestConnectionCoroutine());
         }
 
@@ -652,9 +653,11 @@ namespace LocalizationTools
             int updatedCount = 0;
             int skippedCount = 0;
 
+            var sharedData = tableCollection.SharedData;
+
             foreach (var entry in entries)
             {
-                bool entryExists = tableCollection.SharedData.Contains(entry.key);
+                bool entryExists = sharedData.Contains(entry.key);
 
                 if (entryExists && !profile.overwriteExisting)
                 {
@@ -670,7 +673,7 @@ namespace LocalizationTools
 
                 if (!entryExists)
                 {
-                    tableCollection.SharedData.AddKey(entry.key);
+                    sharedData.AddKey(entry.key);
                     importedCount++;
                 }
                 else
@@ -697,11 +700,14 @@ namespace LocalizationTools
                         {
                             table.AddEntry(entry.key, translation);
                         }
-
                         EditorUtility.SetDirty(table);
                     }
                 }
             }
+
+            EditorUtility.SetDirty(sharedData);
+            EditorUtility.SetDirty(tableCollection);
+            AssetDatabase.SaveAssets();
 
             Debug.Log($"[{profile.name}] Import - New: {importedCount}, Updated: {updatedCount}, Skipped: {skippedCount}");
         }

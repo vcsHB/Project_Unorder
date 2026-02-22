@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7103df2f8d39fec4cb2c272df1917808, type: 3}
-  m_Name: PoolTableasset
+  m_Name: CombatScenePool
   m_EditorClassIdentifier: 
   groupName: PoolTable
   enumTypeName: ObjectPooling.Generated.PoolTablePoolKey, Assembly-CSharp

@@ -11462,7 +11462,7 @@ GameObject:
   - component: {fileID: 97708468}
   m_Layer: 0
   m_Name: EventSystem
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13206,7 +13206,7 @@ GameObject:
   - component: {fileID: 227773765}
   m_Layer: 0
   m_Name: SystemPopups
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15957,6 +15957,37 @@ MonoBehaviour:
   - {fileID: 949801324}
   _defaultPage: {fileID: 282811277}
   CurrentWindowPage: {fileID: 0}
+--- !u!1 &488177201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 488177202}
+  m_Layer: 0
+  m_Name: ===UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &488177202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488177201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &489937570
 GameObject:
   m_ObjectHideFlags: 0
@@ -16620,7 +16651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 527669124}
   m_Layer: 0
-  m_Name: ====================
+  m_Name: ===Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21988,7 +22019,7 @@ GameObject:
   - component: {fileID: 619394801}
   m_Layer: 0
   m_Name: Global Light 2D
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34523,7 +34554,7 @@ GameObject:
   - component: {fileID: 926679053}
   m_Layer: 5
   m_Name: MainCanvas
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36895,7 +36926,7 @@ GameObject:
   - component: {fileID: 1212345221}
   m_Layer: 0
   m_Name: ResourceManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45856,7 +45887,7 @@ GameObject:
   - component: {fileID: 1572176630}
   m_Layer: 0
   m_Name: PlayerGroup
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57346,7 +57377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1739209955}
   m_Layer: 0
-  m_Name: ====================
+  m_Name: ===Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58733,7 +58764,7 @@ GameObject:
   - component: {fileID: 1826200793}
   m_Layer: 0
   m_Name: Global Volume
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59385,9 +59416,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1930351829}
+  - component: {fileID: 1930351830}
   m_Layer: 0
   m_Name: PoolManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59400,13 +59432,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930351828}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0187422, y: -8.851158, z: -0.015365191}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1960357551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1930351830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930351828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25faf8e44a7f1a49b0031e5539fe49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolGroups:
+  - {fileID: 11400000, guid: 7f1c7db3ac76f944b881b2238369ec97, type: 2}
 --- !u!1 &1933636346
 GameObject:
   m_ObjectHideFlags: 0
@@ -59737,7 +59783,7 @@ GameObject:
   - component: {fileID: 1960357551}
   m_Layer: 0
   m_Name: CombatSceneEssential
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59757,6 +59803,7 @@ Transform:
   m_Children:
   - {fileID: 1212345222}
   - {fileID: 680474133}
+  - {fileID: 1930351829}
   - {fileID: 1408190652}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65091,6 +65138,37 @@ Transform:
   - {fileID: 868353394}
   m_Father: {fileID: 2041510332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1998631688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1998631689}
+  m_Layer: 0
+  m_Name: ===Essential
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1998631689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998631688}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2001720442
 GameObject:
   m_ObjectHideFlags: 0
@@ -68139,6 +68217,7 @@ RectTransform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1998631689}
   - {fileID: 1826200794}
   - {fileID: 619394802}
   - {fileID: 97708470}
@@ -68154,12 +68233,12 @@ SceneRoots:
   - {fileID: 1055167147}
   - {fileID: 1573836747}
   - {fileID: 139999354}
-  - {fileID: 227773765}
   - {fileID: 312452281}
+  - {fileID: 488177202}
+  - {fileID: 227773765}
   - {fileID: 646641105}
   - {fileID: 2134817223}
   - {fileID: 502850189}
   - {fileID: 973484827}
   - {fileID: 163522477}
   - {fileID: 707994156}
-  - {fileID: 1930351829}

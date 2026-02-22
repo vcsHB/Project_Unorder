@@ -26,12 +26,12 @@ MonoBehaviour:
     m_Localized: "\uBCC0\uCE59"
     m_Metadata:
       m_Items: []
-  - m_Id: 6566806261002240
-    m_Localized: "\uC9C8\uC11C"
+  - m_Id: 8143981626478593
+    m_Localized: "\uC608\uC678\uAD00\uB9AC\uC790"
     m_Metadata:
       m_Items: []
-  - m_Id: 6566806315528192
-    m_Localized: "\uC608\uC678\uAD00\uB9AC\uC790"
+  - m_Id: 8143981626478592
+    m_Localized: "\uC9C8\uC11C"
     m_Metadata:
       m_Items: []
   references:

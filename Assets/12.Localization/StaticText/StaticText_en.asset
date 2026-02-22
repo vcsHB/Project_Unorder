@@ -66,6 +66,138 @@ MonoBehaviour:
     m_Localized: 
     m_Metadata:
       m_Items: []
+  - m_Id: 7612229578846208
+    m_Localized: MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229767589888
+    m_Localized: PAUSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229767589889
+    m_Localized: CONTINUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229767589890
+    m_Localized: CONFIG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229771784192
+    m_Localized: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229771784193
+    m_Localized: Log_BOX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229771784194
+    m_Localized: PAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229771784195
+    m_Localized: CONTACTOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229771784196
+    m_Localized: RULE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229771784197
+    m_Localized: SIGNAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7612229771784198
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373255331840
+    m_Localized: MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373465047040
+    m_Localized: PAUSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373469241344
+    m_Localized: CONTINUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373469241345
+    m_Localized: CONFIG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373469241346
+    m_Localized: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373469241347
+    m_Localized: Log_BOX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373469241348
+    m_Localized: PAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373469241349
+    m_Localized: CONTACTOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373469241350
+    m_Localized: RULE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373469241351
+    m_Localized: SIGNAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8383373469241352
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607604105216
+    m_Localized: MENU
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602688
+    m_Localized: PAUSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602689
+    m_Localized: CONTINUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602690
+    m_Localized: CONFIG
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602691
+    m_Localized: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602692
+    m_Localized: Log_BOX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602693
+    m_Localized: PAGE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602694
+    m_Localized: CONTACTOR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602695
+    m_Localized: RULE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602696
+    m_Localized: SIGNAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602697
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

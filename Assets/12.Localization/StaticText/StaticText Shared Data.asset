@@ -14,7 +14,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: StaticText
   m_TableCollectionNameGuidString: 4cc327d97aa035e4fb2da970df2d5aa9
-  m_Entries: []
+  m_Entries:
+  - m_Id: 8407607604105216
+    m_Key: ST_menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602688
+    m_Key: ST_pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602689
+    m_Key: ST_continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602690
+    m_Key: ST_config
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602691
+    m_Key: ST_quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602692
+    m_Key: ST_logbox
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602693
+    m_Key: ST_page
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602694
+    m_Key: ST_contactor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602695
+    m_Key: ST_rule
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602696
+    m_Key: ST_signal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8407607679602697
+    m_Key: ST_
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

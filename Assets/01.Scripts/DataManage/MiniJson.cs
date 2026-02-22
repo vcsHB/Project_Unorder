@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LocalizationTools
+namespace DataManage
 {
     /// <summary>
     /// 간단한 JSON 파서 - Dictionary 지원
