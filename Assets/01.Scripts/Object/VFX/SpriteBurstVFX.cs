@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project_Unorder.ObjectManage
+namespace Project_Unorder.ObjectManage.VFX
 {
     [System.Serializable]
     public struct FloatMinMaxGroup

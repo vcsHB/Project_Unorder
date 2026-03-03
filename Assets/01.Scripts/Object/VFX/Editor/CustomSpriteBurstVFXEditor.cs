@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace Project_Unorder.ObjectManage
+namespace Project_Unorder.ObjectManage.VFX
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(SpriteBurstVFX))]

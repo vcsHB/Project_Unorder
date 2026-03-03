@@ -1,6 +1,6 @@
 using ObjectPooling;
 using UnityEngine;
-namespace Project_Unorder.ObjectManage
+namespace Project_Unorder.ObjectManage.VFX
 {
 
     public class VFXPlayer : MonoBehaviour, IPoolable
