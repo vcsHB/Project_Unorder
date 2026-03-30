@@ -23,15 +23,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18617118683136
-    m_Localized: "\uBCC0\uCE59"
+    m_Localized: UNORDER
     m_Metadata:
       m_Items: []
   - m_Id: 8143981626478593
-    m_Localized: "\uC608\uC678\uAD00\uB9AC\uC790"
+    m_Localized: EXCEPTION
     m_Metadata:
       m_Items: []
   - m_Id: 8143981626478592
-    m_Localized: "\uC9C8\uC11C"
+    m_Localized: ORDER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18972096468570112
+    m_Localized: ORTHOS
     m_Metadata:
       m_Items: []
   references:
