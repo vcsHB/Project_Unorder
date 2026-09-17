@@ -12,20 +12,46 @@ namespace Project_Unorder.FlowSystem
     {
         public event Action OnFlowEndEvent;
         public uint flowLevel => _flowLevel;
-        private uint _flowLevel;
+        public bool IsRunning => _isRunning;
+
         [SerializeField] private FlowCue[] _cues;
-        private uint _currentCueIndex = 0;
+        [SerializeField] private bool _autoStartOnSceneLoad = true;
+
+        private uint _flowLevel;
+        private uint _currentCueIndex;
+        private bool _isRunning;
+        private bool _hasStarted;
+
         private FlowCue CurrentCue => _cues[_currentCueIndex];
 
         private void Awake()
         {
             _cues = GetComponentsInChildren<FlowCue>();
             _currentCueIndex = 0;
-            StartFlow();
+        }
+
+        private void Start()
+        {
+            if (_autoStartOnSceneLoad && !_hasStarted)
+                StartFlow();
+        }
+
+        public void CancelAutoStart()
+        {
+            _autoStartOnSceneLoad = false;
+        }
+
+        internal void PrepareExternalStart(uint level)
+        {
+            _flowLevel = level;
+            _autoStartOnSceneLoad = false;
         }
 
         public virtual void StartFlow()
         {
+            if (_hasStarted) return;
+            _hasStarted = true;
+
             if (_cues == null || _cues.Length == 0)
             {
                 Debug.LogError($"FlowStep: Cues did not Set. Force End this Flow. Level:{_flowLevel}");
@@ -33,6 +59,7 @@ namespace Project_Unorder.FlowSystem
                 return;
             }
 
+            _isRunning = true;
             _currentCueIndex = 0;
             ExecuteCurrentCue();
         }
@@ -42,7 +69,6 @@ namespace Project_Unorder.FlowSystem
             CurrentCue.OnCueCompleteEvent += HandleCueComplete;
             Debug.Log($"EXECUTED in flowIndex:{_flowLevel} : FlowCue(idx{_currentCueIndex}) Enter.");
             CurrentCue.Execute();
-
         }
 
         private void HandleCueComplete(float delayTime)
@@ -72,6 +98,7 @@ namespace Project_Unorder.FlowSystem
 
         protected virtual void EndFlow()
         {
+            _isRunning = false;
             OnFlowEndEvent?.Invoke();
         }
 
