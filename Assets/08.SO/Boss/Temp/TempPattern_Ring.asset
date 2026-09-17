@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831a0bdf503292449aa5be8889511b60, type: 3}
+  m_Name: TempPattern_Ring
+  m_EditorClassIdentifier: Assembly-CSharp::Project_Unorder.AgentSystem.BossSystem.AttackPattern.Patterns.RingPatternSO
+  PatternType: 1
+  _emitterIndex: 0
+  _bulletCount: 12
+  _bulletSpeed: 5
+  _damage: 10
+  _lifeTime: 6
+  _ringCount: 3
+  _ringInterval: 0.5
+  _rotationOffsetPerRing: 15

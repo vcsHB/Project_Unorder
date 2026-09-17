@@ -1,4 +1,5 @@
 using Project_Unorder.AgentSystem.BossSystem.AttackPattern;
+using Project_Unorder.AgentSystem.BossSystem.AttackPattern.Selection;
 using Project_Unorder.AgentSystem.BossSystem.Cinematic;
 using Project_Unorder.LogSystem;
 using UnityEngine;
@@ -13,7 +14,8 @@ namespace Project_Unorder.AgentSystem.BossSystem.Data
         public BossCinematic IntroCinematic;
 
         [Header("Combat")]
-        public BossAttackPatternSO[] Patterns;
+        public BossPatternEntry[] Patterns;
+        public PatternSelectorSO Selector;
 
         [Header("Transition")]
         [Range(0f, 1f)]

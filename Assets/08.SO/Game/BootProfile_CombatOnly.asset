@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BootProfile_CombatOnly
   m_EditorClassIdentifier: Assembly-CSharp::Project_Unorder.BootSystem.BootProfile
   mode: 1
-  combatScene: {fileID: 0}
+  combatScene: {fileID: 11400000, guid: ef7723fd20555a848901d6050ac66ade, type: 2}
   startPhaseIndex: 0
   chapterId: 0
   step: 0
-  skipBossIntro: 0
+  skipBossIntro: 1
