@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project_Unorder.FlowSystem
 {
-    public enum ActionType
+    public enum FlowActionType
     {
         ExceptionText,
     }

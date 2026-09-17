@@ -33,7 +33,7 @@
 ### 1. 매니저 초기화 순서 — `IEarlyAwakeableManager`
 [Core/ManagerInitializer.cs](../../../Assets/01.Scripts/Core/ManagerInitializer.cs) 가 씬의 자식 매니저 중 `IEarlyAwakeableManager` 구현체를 모아 Unity `Awake`보다 **먼저** `PreAwake()`를 호출한다.
 
-- 구현 매니저: `PlayerManager`, `CameraManager`, `CombatManager`, `RuleManager`(GameSystem/RuleSystem 둘 다), `VolumeManager`
+- 구현 매니저: `PlayerManager`, `CameraManager`, `CombatManager`, `RuleManager`(`RuleSystem/`), `VolumeManager`
 - 순서 의존 초기화는 `Awake`가 아니라 `PreAwake()`에 둘 것.
 
 ### 2. 싱글턴 — `MonoSingleton<T>`

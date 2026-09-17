@@ -10,9 +10,9 @@
 ## 문서 색인
 | 문서 | 내용 |
 |---|---|
-| _(예: core-loop.md)_ | 코어 게임플레이 루프 |
+| [core-design.md](core-design.md) | **코어 기획** — Order/Unorder, Rule, 드래그 탄막 제어, 턴제 전투, 튜토리얼 |
 | _(예: boss-design.md)_ | 보스 페이즈·패턴 설계 |
-| _(예: rule-system.md)_ | 규칙/패널티 설계 의도 |
+| _(예: rule-system.md)_ | 개별 룰 카탈로그·발동 조건 |
 | _(예: progression.md)_ | 챕터/Flow 진행 구조 |
 
 > 새 기획 문서는 이 폴더에 추가하고 위 색인에 한 줄로 등록한다.

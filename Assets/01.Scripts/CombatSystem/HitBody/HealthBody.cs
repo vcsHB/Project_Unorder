@@ -40,7 +40,7 @@ namespace Project_Unorder.CombatSystem
         {
             if (_isDead) return;
 
-            if (_currentHealth < 0)
+            if (_currentHealth <= 0)
             {
                 HandleDie();
             }

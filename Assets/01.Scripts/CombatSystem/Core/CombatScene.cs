@@ -7,7 +7,7 @@ namespace Project_Unorder.CombatSystem.Core
     {
         public uint id;
         public BossDataSO bossData;
-        public CombatSceneConfig condfig;
+        public CombatSceneConfig config;
 
 
     }

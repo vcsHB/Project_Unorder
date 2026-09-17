@@ -13,15 +13,5 @@ namespace Project_Unorder.RuleSystem
 
             public static event Action<bool> OnRuleTriggerEvent; // parameter : Violation
         }
-
-        public static class RULE_LifeTime
-        {
-            public static void Trigger(bool isViolated)
-            {
-                OnRuleTriggerEvent?.Invoke(isViolated);
-            }
-
-            public static event Action<bool> OnRuleTriggerEvent; // parameter : Violation
-        }
     }
 }

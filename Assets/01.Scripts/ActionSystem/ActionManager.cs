@@ -5,7 +5,7 @@ namespace Project_Unorder.ActionSystem
 
     public enum ActionType
     {
-        Destory,
+        Destroy,
         Unorder,
         Attack,
         Fix,
